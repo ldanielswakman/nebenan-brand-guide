@@ -87,13 +87,14 @@ body {
     align-items: center;
     padding: 3rem 0 3rem;
     background: url('images/small-skyline.svg');
-    background-size: contain;
-    background-position: bottom;
+    background-size: 140%;
+    background-position: bottom left;
     background-repeat: no-repeat;
 }
 @media screen and (min-width: 768px) {
     .intro-group {
         padding-top: 1rem;
+        background-size: contain;
     }
 }
 
@@ -101,19 +102,40 @@ body {
 
 /* Page panels */
 .panel--nav {
-    display: none;
-    flex-basis: 20%;
+    flex-basis: 0;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     .panel--nav {
         display: block;
+        flex-basis: 25%;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .panel--nav {
+        flex-basis: 20%;
     }
 }
 .panel--left {
     position: relative;
-    flex-basis: 40%;
+    flex-basis: 100%;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+    .panel--left {
+        flex-basis: 60%;
+        padding: 2rem 4rem;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .panel--left {
+        flex-basis: 45%;
+    }
+}    
+@media screen and (min-width: 1200px) {
+    .panel--left {
+        flex-basis: 40%;
+    }
 }
 .panel--left p {
     font-size: 1.125rem;
@@ -124,8 +146,17 @@ body {
     flex-basis: 40%;
 }
 @media screen and (min-width: 768px) {
-    .panel--left { flex-basis: 60%; padding: 2rem 4rem }
     .panel--right { min-height: auto; flex-basis: 40%; order: 2; }
+}
+@media screen and (min-width: 1024px) {
+    .panel--right {
+        flex-basis: 30%;
+    }
+}    
+@media screen and (min-width: 1200px) {
+    .panel--right {
+        flex-basis: 40%;
+    }
 }
 
 
@@ -150,6 +181,25 @@ h1 {
     color: #bbb;
     letter-spacing: 1px;
 }
+.heading-logo {
+    display: flex;
+    margin: -1rem 0;
+    padding: 1rem 0;
+    color: inherit;
+}
+@media screen and (min-width: 1024px) {
+    .heading-logo { display: none; }
+}
+.heading-logo img {
+    width: 1.25rem;
+    margin-right: 0.5rem;
+}
+.heading-logo h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+
 
 a { text-decoration: none; }
 
@@ -308,7 +358,6 @@ nav {
     position: sticky;
     top: 0;
 }
-
 .nav-header {
     padding: 2.5rem 1.25rem;
 }
@@ -321,6 +370,32 @@ nav {
     font-size: 1.25rem;
     font-weight: bold;
 }
+/* Mobile Nav */
+@media screen and (max-width: 1023px) {
+    body.page--content { padding-bottom: 91px; }
+    nav {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        min-height: auto;
+        width: 100%;
+        background: white;
+    }
+    .nav-header {
+        display: none;
+    }
+    nav .toc {
+        flex-direction: row;
+    }
+    nav .toc__section { padding-bottom: 0; }
+    nav .toc__header { padding: 1rem 1rem 1rem 0; }
+    nav .toc__title h3 { font-size: 1rem; line-height: 1.25rem; }
+    nav .toc__content { display: none; }
+    
+}
+
 
 
 
