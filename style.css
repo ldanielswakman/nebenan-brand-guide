@@ -95,67 +95,75 @@ body {
         background-size: contain;
     }
 }
+.intro-group blockquote p {
+    font-size: 1.25rem;
+    color: #bbb;
+    font-weight: 500;
+    width: calc(100% - 6rem);
+    max-width: 40rem;
+    margin: 0 auto;
+}
 
 
 
-/* Page panels */
-.panel--nav {
-    flex-basis: 0;
+/* Panel layout */
+.panel--nav { flex-basis: 0; }
+.panel--full,
+.panel--left,
+.panel--right { flex-basis: 100%; }
+@media screen and (min-width: 768px) {
+    .panel--left { flex-basis: 60%; }
+    .panel--right { flex-basis: 40%; }
 }
 @media screen and (min-width: 1024px) {
-    .panel--nav {
-        display: block;
-        flex-basis: 25%;
-    }
+    .panel--nav { flex-basis: 25%; }
+    .panel--full { flex-basis: 75%; }
+    .panel--left { flex-basis: 50%; }
+    .panel--right { flex-basis: 25%; }
 }
 @media screen and (min-width: 1200px) {
-    .panel--nav {
-        flex-basis: 20%;
-    }
+    .panel--nav { flex-basis: 20%; }
+    .panel--full { flex-basis: 80%; }
+    .panel--left { flex-basis: 45%; }
+    .panel--right { flex-basis: 35%; }
 }
-.panel--left {
+/* Panel styling */
+.panel--full, .panel--left {
     position: relative;
-    flex-basis: 100%;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
 }
 @media screen and (min-width: 768px) {
-    .panel--left {
-        flex-basis: 60%;
+    .panel--full, .panel--left {
         padding: 2rem 4rem;
     }
 }
-@media screen and (min-width: 1024px) {
-    .panel--left {
-        flex-basis: 50%;
-    }
-}    
-@media screen and (min-width: 1200px) {
-    .panel--left {
-        flex-basis: 45%;
-    }
+@media screen and (min-width: 768px) {
+    .panel--right { min-height: auto; order: 2; }
 }
+
+
+
+/* Content formatting */
+.panel--full p,
 .panel--left p {
+    max-width: 60rem;
     font-size: 1.125rem;
     line-height: 1.875rem;
     color: #757575;
 }
-.panel--right {
-    flex-basis: 40%;
+.panel--full p + figure,
+.panel--left p + figure {
+    max-width: 72rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
-@media screen and (min-width: 768px) {
-    .panel--right { min-height: auto; flex-basis: 40%; order: 2; }
+.panel--full blockquote p, 
+.panel--left blockquote p {
+    font-size: 2rem;
+    color: #B2CA06;
 }
-@media screen and (min-width: 1024px) {
-    .panel--right {
-        flex-basis: 30%;
-    }
-}    
-@media screen and (min-width: 1200px) {
-    .panel--right {
-        flex-basis: 35%;
-    }
-}
+
 
 
 
@@ -183,6 +191,17 @@ h1 {
     color: #bbb;
     letter-spacing: 1px;
 }
+.heading4 {
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.heading5 {
+    margin: 2rem 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.heading5 + p { margin-top: 0; }
 .heading-logo {
     display: flex;
     margin: -1rem 0;
@@ -205,16 +224,8 @@ h1 {
 
 a { text-decoration: none; }
 
-
 blockquote { margin: 0 0 2rem; }
-blockquote p {
-    font-size: 1.25rem;
-    color: #bbb;
-    font-weight: 500;
-    width: calc(100% - 6rem);
-    max-width: 40rem;
-    margin: 0 auto;
-}
+
 
 
 
@@ -356,6 +367,10 @@ blockquote p {
     color: #B2CA06;
     font-weight: bold;
 }
+.toc__content a.is-disabled {
+    color: #BBBBBB;
+    cursor: not-allowed;
+}
 
 
 /* Nav */
@@ -405,9 +420,13 @@ nav {
 
 
 
-/* BG Figure */
+/* Figure */
 
-.bg-figure {
+
+figure { margin: 0; padding: 0; }
+figure img { max-width: 100%; }
+
+.figure--bg {
     position: sticky;
     top: 0;
     width: 100%;
@@ -418,11 +437,21 @@ nav {
     background-position: top;
     background-repeat: no-repeat;
 }
-.bg-figure img { display: none; }
+.figure--bg img { display: none; }
 @media screen and (min-width: 768px) {
-    .bg-figure {
+    .figure--bg {
         min-height: 100vh;
     }
+}
+.figure--fullwidth {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
+@media screen and (min-width: 768px) {
+    .figure--fullwidth {
+        margin-left: -4rem;
+        margin-right: -4rem;
+
 }
 
 
@@ -431,7 +460,7 @@ nav {
 .next {
     position: relative;
     display: block;
-    margin: 2rem -1.5rem -1.5rem -1.5rem;
+    margin: 3rem -1.5rem -1.5rem -1.5rem;
     padding: 2rem 4rem;
     border-top: 1px solid #EDEDE9;
     background: url('images/small-skyline.svg');
@@ -442,7 +471,7 @@ nav {
 }
 @media screen and (min-width: 768px) {
     .next {
-        margin: 2rem -4rem -2rem -4rem;
+        margin: 3rem -4rem -2rem -4rem;
         background-size: contain;
     }
 }
