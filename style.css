@@ -298,7 +298,7 @@ blockquote p {
 }
 .toc__header {
     display: flex;
-    padding: 2rem 0 1rem;
+    padding: 1.5rem 0 1.5rem;
     color: #9c9c9c;
 }
 .toc__header.is-active {
@@ -310,6 +310,7 @@ blockquote p {
 }
 .toc__header:hover {
     background: #F7F9E6;
+    color: #393939;
 }
 .toc__icon {
     display: flex;
@@ -317,6 +318,7 @@ blockquote p {
     align-items: center;
     flex-basis: 3rem;
 }
+.toc__icon svg path { fill: rgba(0, 0, 0, 0.3); }
 .toc__title {
     display: block;
     flex: 1;
@@ -340,14 +342,15 @@ blockquote p {
 .toc__content a {
     display: block;
     padding: 0.5rem 1rem 0.5rem 3rem;
-    color: #9c9c9c;
-    font-weight: 600;
+    color: #757575;
+    font-weight: regular;
 }
 .toc--home .toc__content a {
     color: #393939;
 }
 .toc__content a:hover {
     background: #F7F9E6;
+    color: #393939;
 }
 .toc__content a.is-active {
     color: #B2CA06;
