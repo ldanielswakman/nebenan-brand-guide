@@ -148,9 +148,16 @@ body {
 .panel--full p,
 .panel--left p {
     max-width: 60rem;
-    font-size: 1.125rem;
-    line-height: 1.875rem;
+    font-size: 1rem;
+    line-height: 1.625rem;
     color: #757575;
+}
+@media screen and (min-width: 768px) {
+    .panel--full p,
+    .panel--left p {
+        font-size: 1.125rem;
+        line-height: 1.875rem;
+    }
 }
 .panel--full p + figure,
 .panel--left p + figure {
@@ -225,6 +232,22 @@ h1 {
 a { text-decoration: none; }
 
 blockquote { margin: 0 0 2rem; }
+
+
+
+
+/* Content Columns */
+.row {
+    display: flex;
+    width: calc(100% + 2rem);
+    max-width: calc(100% + 2rem);
+    margin: 0 -1rem;
+    flex-direction: column;
+}
+.col { padding: 1rem; }
+@media screen and (min-width: 768px) {
+    .row { flex-direction: row; }
+}
 
 
 
