@@ -1,0 +1,18 @@
+nav {
+    position: sticky;
+    top: 0;
+}
+.nav-header {
+    padding: 2.5rem 1.25rem;
+
+    img { width: 2rem; margin-right: 1.25rem; }
+    
+    a {
+        display: flex;
+        color: inherit;
+    }
+    h2 {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+}

@@ -1,6 +1,6 @@
 ---
 slug: "/understanding/story"
 date: "2019-05-04"
-title: "Story"
+title: "Our Story"
 section: understanding
 ---

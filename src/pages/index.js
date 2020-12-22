@@ -11,7 +11,7 @@ export default function Home({data}) {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Nebenan Brand Guide</title>
-        <link rel="canonical" href="https://brand-guide.nebenan.de/" />
+        <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
       </Helmet>
 
       <aside className="panel panel--home-cover">
@@ -28,7 +28,7 @@ export default function Home({data}) {
 
         </section>
 
-        <Menu />
+        <Menu name="Jean" home={true} />
 
       </main>
     </div>
@@ -40,6 +40,7 @@ export const query = graphql`
     site {
       siteMetadata {
         description
+        siteUrl
       }
     }
     allSitePage(sort: {fields: path, order: ASC}) {

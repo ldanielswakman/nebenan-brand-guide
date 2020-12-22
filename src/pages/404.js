@@ -1,10 +1,10 @@
 import React from "react"
-import Nav from "../components/nav"
+import Menu from "../components/menu"
 
 export default function Home() {
   return (
     <div>
-      <Nav />
+      <Menu />
       <h1 className="heading1">404!</h1>
     </div>
   )

@@ -1,32 +1,42 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { Helmet } from "react-helmet"
+import Sidebar from "../components/sidebar"
 
-export default function Template({data}) {
-    const { markdownRemark } = data
+export default function Template({data, location}) {
+
+    const { markdownRemark, site } = data
     const { frontmatter, html } = markdownRemark
+    const pageUrl = site.siteMetadata.siteUrl + location.pathname
+
     return (
         <div className="main">
 
             <Helmet>
-                <meta charSet="utf-8" />
-                <title>Nebenan Brand Guide</title>
-                <link rel="canonical" href="https://brand-guide.nebenan.de/" />
+                <title>{frontmatter.title} - {site.siteMetadata.title}</title>
+                <link rel="canonical" href={pageUrl} />
             </Helmet>
 
-            <aside class="panel panel--right">
-                <figure class="figure--bg" style={{ backgroundImage: "url('/images/story.jpg')" }}><img src="/images/story.jpg" alt="" /></figure>
+            <Sidebar />
+
+            <aside className="panel panel--right">
+                <figure className="figure--bg" style={{ backgroundImage: "url('/images/story.jpg')" }}><img src="/images/story.jpg" alt="" /></figure>
             </aside>
+            
+            <main className="panel panel--left">
 
-            <main class="panel panel--left">
-
-                <Link to="index.html" class="heading-logo">
+                <Link to="index.html" className="heading-logo">
                     <img src="/images/nebenan-monogram.svg" alt="" />
                     <h2>Brand Guide</h2>
                 </Link>
 
-                <h2 class="heading3">UNDERSTANDING THE BRAND</h2>
-                <h1 class="heading2">{frontmatter.title}</h1>
+                <h2 className="heading3">UNDERSTANDING THE BRAND</h2>
+                <h1 className="heading2">{frontmatter.title}</h1>
+
+                <div
+                    className="blog-post-content"
+                    dangerouslySetInnerHTML={{ __html: html }}
+                    />
 
             </main>
             
@@ -36,6 +46,13 @@ export default function Template({data}) {
 
 export const pageQuery = graphql`
   query($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+      }
+    }
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {

@@ -2,9 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import "./menu.scss"
 
-export default function Menu() {
+export default function Menu(props) {
     return (
-        <section className="toc toc--home">
+        <section className={`toc ${props.home ? 'toc--home' : ''}`}>
             <div className="toc__section">
                 <Link to="/understanding/story" className="toc__header">
                     <div className="toc__icon">
@@ -23,6 +23,28 @@ export default function Menu() {
                     <li><Link to="/understanding/ecosystem">Ecosystem</Link></li>
                     <li><Link to="/understanding/values">Values</Link></li>
                     <li><Link to="/understanding/tone-of-voice">Tone of voice</Link></li>
+                </ul>
+            </div>
+            <div class="toc__section">
+                <Link to="/using/colours" class="toc__header">
+                    <div class="toc__icon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 18.5714V20H0.714292V18.5714H20ZM20 15.7143V17.1428H7.85715V15.7143H20ZM13.9181 0.194336L16.9485 3.22476L4.32143 15.8517L0.281006 16.8618L1.29115 12.8214L13.9181 0.194336ZM11.3929 4.73998L2.58108 13.5516L2.24436 14.8985L3.59129 14.5618L12.4029 5.74998L11.3929 4.73998ZM20 12.8571V14.2857H12.1429V12.8571H20ZM13.9181 2.21462L12.4029 3.72984L13.413 4.73998L14.9286 3.22476L13.9181 2.21462Z" fill="#B2CA06"/>
+                        </svg>                                    
+                    </div>
+                    <div class="toc__title">
+                        <div class="toc__pretitle">PART 2</div>
+                        <h3>Using the Brand</h3>
+                    </div>
+                </Link>
+                <ul class="toc__content">
+                    <li><Link to="/using/colours">Colours</Link></li>
+                    <li><Link to="/using/logo">Logo</Link></li>
+                    <li><Link to="/using/typography">Typography</Link></li>
+                    <li><Link to="/using/photography">Photography</Link></li>
+                    <li><Link to="/using/iconography">Iconography</Link></li>
+                    <li><Link to="/using/illustrations">Illustrations</Link></li>
+                    <li><Link to="/using/colours">Applications</Link></li>
                 </ul>
             </div>
         </section>

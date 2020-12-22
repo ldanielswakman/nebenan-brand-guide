@@ -7,6 +7,7 @@
 module.exports = {
   siteMetadata: {
     title: `Nebenan Brand Guide`,
+    short_name: `Brand Guide`,
     siteUrl: `https://brand-guide.nebenan.de/`,
     description: `Knowing how to communicate the nebenan.de brand — inside the company and outwards.`,
   },

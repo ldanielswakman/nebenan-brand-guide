@@ -315,24 +315,6 @@ blockquote { margin: 0 0 2rem; }
 
 
 
-/* Nav */
-
-nav {
-    position: sticky;
-    top: 0;
-}
-.nav-header {
-    padding: 2.5rem 1.25rem;
-}
-.nav-header img { width: 2rem; margin-right: 1.25rem; }
-.nav-header a {
-    display: flex;
-    color: inherit;
-}
-.nav-header h2 {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
 /* Mobile Nav */
 @media screen and (max-width: 1023px) {
     body.page--content { padding-bottom: 91px; }
