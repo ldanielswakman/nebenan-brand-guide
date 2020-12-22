@@ -1,0 +1,113 @@
+$greylightest: #F7F9E6;
+$greylighter: #EDEDE9;
+$greylight: #BBBBBB;
+$greymedium: #9c9c9c;
+$greydark: #757575;
+
+$knallgreen-100: #B2CA06;
+$grey-120: #393939;
+
+$primary: $knallgreen-100;
+$base: $grey-120;
+
+.toc {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-end;
+    width: 100%;
+    margin-top: auto;
+    text-align: left;
+
+    &.toc--home {
+        flex-direction: row;
+    }
+    
+    &__section {
+        flex: 1;
+        padding-bottom: 2rem;
+        border-top: 1px solid $greylighter;
+
+        & + .toc__section {
+            border-left: 1px solid $greylighter;
+        }
+    }
+
+    &__header {
+        display: flex;
+        padding: 1.5rem 0 1.5rem;
+        color: $greymedium;
+
+        &:hover {
+            background: $greylightest;
+            color: $base;
+        }
+
+        &.is-active {
+            color: $primary;
+            background: $greylightest;
+        }
+
+        .toc--home & {
+            color: $base;
+        }
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 3rem;
+
+        svg path { fill: rgba(0, 0, 0, 0.3); }
+    }
+
+    &__title {
+        display: block;
+        flex: 1;
+
+        h3 {
+            margin: 0;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+    }
+
+    &__pretitle {
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        opacity: 0.4;
+    }
+
+    &__content {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        a {
+            display: block;
+            padding: 0.5rem 1rem 0.5rem 3rem;
+            color: $greydark;
+            font-weight: regular;
+
+            &:hover {
+                background: $greylightest;
+                color: $base;
+            }
+
+            &.is-active {
+                color: $primary;
+                font-weight: bold;
+            }
+
+            &.is-disabled {
+                color: $greylight;
+                cursor: not-allowed;
+            }
+
+            .toc--home & {
+                color: $base;
+            }
+        }
+    }
+}
