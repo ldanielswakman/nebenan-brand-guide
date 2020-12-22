@@ -314,36 +314,6 @@ blockquote { margin: 0 0 2rem; }
 
 
 
-
-/* Mobile Nav */
-@media screen and (max-width: 1023px) {
-    body.page--content { padding-bottom: 91px; }
-    nav {
-        position: fixed;
-        top: auto;
-        bottom: 0;
-        left: 0;
-        z-index: 10;
-        min-height: auto;
-        width: 100%;
-        background: white;
-    }
-    .nav-header {
-        display: none;
-    }
-    nav .toc {
-        flex-direction: row;
-    }
-    nav .toc__section { padding-bottom: 0; }
-    nav .toc__header { padding: 1rem 1rem 1rem 0; }
-    nav .toc__title h3 { font-size: 1rem; line-height: 1.25rem; }
-    nav .toc__content { display: none; }
-    
-}
-
-
-
-
 /* Figure */
 
 

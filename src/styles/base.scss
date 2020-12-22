@@ -1,0 +1,41 @@
+// Colours
+$greylightest: #F7F9E6;
+$greylighter: #EDEDE9;
+$greylight: #BBBBBB;
+$greymedium: #9c9c9c;
+$greydark: #757575;
+
+$knallgreen-100: #B2CA06;
+$grey-120: #393939;
+
+$primary: $knallgreen-100;
+$base: $grey-120;
+
+
+
+
+// Mixin: Responsive
+@mixin tabletAndUp {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
+@mixin tabletAndDown {
+    @media screen and (max-width: 1023px) {
+        @content;
+    }
+}
+
+// Mixin: Dark mode
+@mixin darkMode {
+    @media (prefers-color-scheme: dark) {
+      @content;
+  
+      html.prefersDarkMode:not(.prefersLightMode) & {
+        @content;
+      }
+    }
+    html.prefersDarkMode & {
+      @content;
+    }
+  }

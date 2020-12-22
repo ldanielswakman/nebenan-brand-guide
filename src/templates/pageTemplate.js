@@ -25,7 +25,7 @@ export default function Template({data, location}) {
             
             <main className="panel panel--left">
 
-                <Link to="index.html" className="heading-logo">
+                <Link to="/" className="heading-logo">
                     <img src="/images/nebenan-monogram.svg" alt="" />
                     <h2>Brand Guide</h2>
                 </Link>
