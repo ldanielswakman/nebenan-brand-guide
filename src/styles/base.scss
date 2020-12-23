@@ -18,11 +18,16 @@ $base: $grey-120;
 
 // Mixin: Responsive
 @mixin tabletAndUp {
+  @media screen and (min-width: 768px) {
+      @content;
+  }
+}
+@mixin tabletWideAndUp {
     @media screen and (min-width: 1024px) {
         @content;
     }
 }
-@mixin tabletAndDown {
+@mixin tabletWideAndDown {
     @media screen and (max-width: 1023px) {
         @content;
     }

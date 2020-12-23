@@ -2,14 +2,13 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import Sidebar from "../components/Sidebar"
+import NextButton from "../components/NextButton"
 
 export default function Template({data, location, pageContext}) {
 
     const { markdownRemark, site } = data
     const { frontmatter, html } = markdownRemark
     const pageUrl = site.siteMetadata.siteUrl + location.pathname
-
-    console.log(pageContext.next);
 
     return (
         <div className="main">
@@ -41,10 +40,7 @@ export default function Template({data, location, pageContext}) {
                     />
 
                 {pageContext.next !== null && (
-                  <Link to={pageContext.next.frontmatter.slug} className="next">
-                      <div className="next__pretitle">NEXT:</div>
-                      <h4>{pageContext.next.frontmatter.title}</h4>
-                  </Link>
+                  <NextButton node={pageContext.next} />
                 )}
 
             </main>
