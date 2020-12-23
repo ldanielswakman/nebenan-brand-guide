@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import Menu from "../components/menu"
+import LangSwitcher from "../components/lang-switcher"
 
 export default function Home({data}) {
   console.log(data);
@@ -26,9 +27,11 @@ export default function Home({data}) {
           <h1 className="heading1">Brand Guide</h1>
           <blockquote><p>{data.site.siteMetadata.description}</p></blockquote>
 
+          <LangSwitcher />
+
         </section>
 
-        <Menu name="Jean" home={true} />
+        <Menu home={true} />
 
       </main>
     </div>
