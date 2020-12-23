@@ -1,6 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
-import "./lang-switcher.scss"
+import "./style.scss"
 
 export default function LangSwitcher(props) {
     return (

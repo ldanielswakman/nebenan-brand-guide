@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
-import Menu from "../components/menu"
-import LangSwitcher from "../components/lang-switcher"
+import Menu from "../components/Menu"
+import LangSwitcher from "../components/LangSwitcher"
 
 export default function Home({data}) {
   console.log(data);

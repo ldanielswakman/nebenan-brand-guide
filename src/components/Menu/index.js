@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import "./menu.scss"
+import "./style.scss"
 
 export default function Menu(props) {
     return (

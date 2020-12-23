@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { Helmet } from "react-helmet"
-import Sidebar from "../components/sidebar"
+import Sidebar from "../components/Sidebar"
 
 export default function Template({data, location}) {
 

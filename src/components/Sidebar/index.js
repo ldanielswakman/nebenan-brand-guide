@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-import Menu from "../components/menu"
+import Menu from "../Menu"
 
-import "./sidebar.scss"
+import "./style.scss"
 
 export default function Sidebar() {
     return (
