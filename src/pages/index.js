@@ -5,7 +5,7 @@ import Menu from "../components/Menu"
 import LangSwitcher from "../components/LangSwitcher"
 
 export default function Home({data}) {
-  console.log(data);
+  // const chapters = data.allMarkdownRemark.edges;
   return (
     <div className="main main--half">
 
@@ -46,11 +46,14 @@ export const query = graphql`
         siteUrl
       }
     }
-    allSitePage(sort: {fields: path, order: ASC}) {
+    allMarkdownRemark {
       edges {
         node {
-          id
-          path
+          frontmatter {
+            slug
+            title
+            section
+          }
         }
       }
     } 

@@ -6,11 +6,11 @@ import "./style.scss"
 
 export default function Sidebar() {
     return (
-        <aside class="panel panel--nav">
+        <aside className="panel panel--nav">
 
             <nav>
 
-                <section class="nav-header">
+                <section className="nav-header">
                     <Link to="/">
                         <img src="/images/nebenan-monogram.svg" alt="" />
                         <h2>Brand Guide</h2>

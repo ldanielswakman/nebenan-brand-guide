@@ -3,11 +3,13 @@ import { graphql, Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import Sidebar from "../components/Sidebar"
 
-export default function Template({data, location}) {
+export default function Template({data, location, pageContext}) {
 
     const { markdownRemark, site } = data
     const { frontmatter, html } = markdownRemark
     const pageUrl = site.siteMetadata.siteUrl + location.pathname
+
+    console.log(pageContext.next);
 
     return (
         <div className="main">
@@ -34,9 +36,16 @@ export default function Template({data, location}) {
                 <h1 className="heading2">{frontmatter.title}</h1>
 
                 <div
-                    className="blog-post-content"
+                    className="page-content"
                     dangerouslySetInnerHTML={{ __html: html }}
                     />
+
+                {pageContext.next !== null && (
+                  <Link to={pageContext.next.frontmatter.slug} className="next">
+                      <div className="next__pretitle">NEXT:</div>
+                      <h4>{pageContext.next.frontmatter.title}</h4>
+                  </Link>
+                )}
 
             </main>
             
