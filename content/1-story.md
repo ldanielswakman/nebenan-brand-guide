@@ -3,6 +3,8 @@ slug: "/understanding/story"
 date: "2019-05-04"
 title: "Our Story"
 section: understanding
+layout: split
+coverimage: "/images/story.jpg"
 ---
 
 <p>Jeder kennt das. Die Musik spielt, aber keiner tanzt. Plötzlich betritt eine mutige Person die Tanzfläche und gibt alles, bis es ihr gelingt auch andere zu begeistern und zu animieren sich ihr anzuschließen. Eine Person kommt dazu, das Eis ist gebrochen und indem man selbst einen Fuß auf die Tanzfläche setzt realisiert man, dass hier gerade die Party abgeht. Wir sind ein Team und jeder Einzelne trägt dazu bei, dass die Idee der le- bendigen Nachbarschaft in die Tat umgesetzt wird und immer mehr Nachbarn begeistert. Hier erzählen wir euch, wie die Idee entstand und die Party ihren Lauf nahm.</p>

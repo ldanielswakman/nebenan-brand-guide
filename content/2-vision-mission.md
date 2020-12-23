@@ -1,8 +1,10 @@
 ---
 slug: "/understanding/vision-mission"
-date: "2020-12-23"
+date: "2019-12-23"
 title: "Vision & Mission"
 section: understanding
+layout: split
+coverimage: "/images/mission.jpg"
 ---
 
 <h3 class="heading4">Vision</h3>

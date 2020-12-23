@@ -20,11 +20,13 @@ export default function Template({data, location, pageContext}) {
 
             <Sidebar />
 
-            <aside className="panel panel--right">
-                <figure className="figure--bg" style={{ backgroundImage: "url('/images/story.jpg')" }}><img src="/images/story.jpg" alt="" /></figure>
-            </aside>
+            {frontmatter.layout == 'split' && (
+              <aside className="panel panel--right">
+                  <figure className="figure--bg" style={{ backgroundImage: "url('" + frontmatter.coverimage + "')" }}><img src={frontmatter.coverimage} alt={frontmatter.title} /></figure>
+              </aside>
+            )}
             
-            <main className="panel panel--left">
+            <main className={`panel panel--${frontmatter.layout == 'split' ? 'left' : 'full'}`}>
 
                 <Link to="/" className="heading-logo">
                     <img src="/images/nebenan-monogram.svg" alt="" />
@@ -64,6 +66,8 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM YYYY")
         slug
         title
+        layout
+        coverimage
       }
     }
   }
