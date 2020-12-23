@@ -90,13 +90,13 @@
                 font-weight: bold;
             }
 
-            &.is-disabled {
-                color: $greylight;
-                cursor: not-allowed;
-            }
-
             .toc--home & {
                 color: var(--text-colour);
+            }
+
+            &.is-disabled {
+                color: var(--subtle-colour);
+                cursor: not-allowed;
             }
         }
     }

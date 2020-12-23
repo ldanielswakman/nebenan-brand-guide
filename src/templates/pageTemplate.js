@@ -14,19 +14,21 @@ export default function Template({data, location, pageContext}) {
         <div className="main">
 
             <Helmet>
+                <meta charSet="utf-8" />
                 <title>{frontmatter.title} - {site.siteMetadata.title}</title>
                 <link rel="canonical" href={pageUrl} />
+                <link id="favicon" rel="shortcut icon" href="/images/app-icon.png" />
             </Helmet>
 
             <Sidebar />
 
-            {frontmatter.layout == 'split' && (
+            {frontmatter.layout === 'split' && (
               <aside className="panel panel--right">
                   <figure className="figure--bg" style={{ backgroundImage: "url('" + frontmatter.coverimage + "')" }}><img src={frontmatter.coverimage} alt={frontmatter.title} /></figure>
               </aside>
             )}
             
-            <main className={`panel panel--${frontmatter.layout == 'split' ? 'left' : 'full'}`}>
+            <main className={`panel panel--${frontmatter.layout === 'split' ? 'left' : 'full'}`}>
 
                 <Link to="/" className="heading-logo">
                     <img src="/images/nebenan-monogram.svg" alt="" />

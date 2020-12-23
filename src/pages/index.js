@@ -13,6 +13,7 @@ export default function Home({data}) {
         <meta charSet="utf-8" />
         <title>{data.site.siteMetadata.title}</title>
         <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+        <link id="favicon" rel="shortcut icon" href="/images/app-icon.png" />
       </Helmet>
 
       <aside className="panel panel--home-cover">
