@@ -1,6 +1,19 @@
+@import './base.scss';
+
 :root {
-    --bg-color: white;
-    --text-color: #393939;
+    --bg-colour: #{$white};
+    --bg-back-colour: #{$greylightest};
+    --subtle-colour: #{$greylighter};
+    --headline-colour: #{$base};
+    --text-colour: #{$greydark};
+
+    @include darkMode {
+        --bg-colour: #{$dark-1};
+        --bg-back-colour: #{$dark-2};
+        --subtle-colour: #{lighten($dark-1, 10%)};
+        --headline-colour: #{$white};
+        --text-colour: #{$greylighter};
+    }
 }
 
 * {
@@ -12,8 +25,8 @@
 body {
     margin: 0;
     padding: 0;
-    background: var(--bg-color);
-    color: var(--text-color);
+    background: var(--bg-colour);
+    color: var(--text-colour);
     font-family: 'Open Sans';
   
     font-size: 100%;
@@ -25,12 +38,12 @@ body {
 
 
 ::selection {
-    background-color: #B2CA06;
-    color: #fff;
+    background-color: $primary;
+    color: $white;
 }
 -moz-::selection {
-    background-color: #B2CA06;
-    color: #fff;
+    background-color: $primary;
+    color: $white;
 }
 
 
@@ -60,7 +73,7 @@ body {
 .panel--home-main {
     display: flex;
     flex-direction: column;
-    background: var(--bg-color);
+    background: var(--bg-colour);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
@@ -85,10 +98,14 @@ body {
     justify-content: center;
     align-items: center;
     padding: 3rem 0 3rem;
-    background: url('/images/small-skyline.svg');
+    background-image: url('/images/small-skyline.svg');
     background-size: 140%;
     background-position: bottom left;
     background-repeat: no-repeat;
+
+    @include darkMode {
+        background-image: url('/images/small-skyline-dark.svg');
+    }
 }
 @media screen and (min-width: 768px) {
     .intro-group {
@@ -130,7 +147,7 @@ body {
 /* Panel styling */
 .panel--full, .panel--left {
     position: relative;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 50px rgba($black, 0.1);
     padding: 1.5rem;
 }
 @media screen and (min-width: 768px) {
@@ -150,7 +167,7 @@ body {
     max-width: 60rem;
     font-size: 1rem;
     line-height: 1.625rem;
-    color: #757575;
+    color: var(--text-colour);
 }
 @media screen and (min-width: 768px) {
     .panel--full p,
@@ -168,7 +185,7 @@ body {
 .panel--full blockquote p, 
 .panel--left blockquote p {
     font-size: 2rem;
-    color: #B2CA06;
+    color: $primary;
 }
 
 
@@ -186,16 +203,18 @@ h1 {
     margin: 1.5rem 0 1rem; 
     font-size: 3rem;
     font-weight: 600;
+    color: var(--headline-colour);
 }
 .heading2 {
     margin: 0 0 3rem;
+    color: var(--headline-colour);
 }
 .heading3 {
     margin: 1.75rem 0 3.25rem;
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 600;
-    color: #bbb;
+    color: var(--headline-colour);
     letter-spacing: 1px;
 }
 .heading4 {

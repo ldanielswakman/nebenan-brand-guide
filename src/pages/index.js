@@ -7,11 +7,11 @@ import LangSwitcher from "../components/LangSwitcher"
 export default function Home({data}) {
   // const chapters = data.allMarkdownRemark.edges;
   return (
-    <div className="main main--half">
+    <div className="main">
 
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Nebenan Brand Guide</title>
+        <title>{data.site.siteMetadata.title}</title>
         <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
       </Helmet>
 
@@ -24,7 +24,7 @@ export default function Home({data}) {
         <section className="intro-group">
 
           <img src="/images/nebenan-monogram.svg" alt="Brand Guide" />
-          <h1 className="heading1">Brand Guide</h1>
+          <h1 className="heading1">{data.site.siteMetadata.short_name}</h1>
           <blockquote><p>{data.site.siteMetadata.description}</p></blockquote>
 
           <LangSwitcher />
@@ -42,6 +42,8 @@ export const query = graphql`
   query HomePageQuery {
     site {
       siteMetadata {
+        title
+        short_name
         description
         siteUrl
       }

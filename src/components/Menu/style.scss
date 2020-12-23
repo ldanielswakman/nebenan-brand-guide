@@ -15,10 +15,10 @@
     &__section {
         flex: 1;
         padding-bottom: 2rem;
-        border-top: 1px solid $greylighter;
+        border-top: 1px solid var(--subtle-colour);
 
         & + .toc__section {
-            border-left: 1px solid $greylighter;
+            border-left: 1px solid var(--subtle-colour);
         }
     }
 
@@ -28,17 +28,17 @@
         color: $greymedium;
 
         &:hover {
-            background: $greylightest;
-            color: $base;
+            background: var(--bg-back-colour);
+            color: var(--headline-colour);
         }
 
         &.is-active {
             color: $primary;
-            background: $greylightest;
+            background: var(--bg-back-colour);
         }
 
         .toc--home & {
-            color: $base;
+            color: var(--headline-colour);
         }
     }
 
@@ -77,12 +77,12 @@
         a {
             display: block;
             padding: 0.5rem 1rem 0.5rem 3rem;
-            color: $greydark;
+            color: var(--text-colour);
             font-weight: regular;
 
             &:hover {
-                background: $greylightest;
-                color: $base;
+                background: var(--bg-back-colour);
+                color: var(--headline-colour);
             }
 
             &.is-active {
@@ -96,7 +96,7 @@
             }
 
             .toc--home & {
-                color: $base;
+                color: var(--text-colour);
             }
         }
     }

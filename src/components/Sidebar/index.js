@@ -8,9 +8,9 @@ export default function Sidebar() {
     return (
         <aside className="panel panel--nav">
 
-            <nav>
+            <div className="sidebar">
 
-                <section className="nav-header">
+                <section className="sidebar__header">
                     <Link to="/">
                         <img src="/images/nebenan-monogram.svg" alt="" />
                         <h2>Brand Guide</h2>
@@ -19,7 +19,7 @@ export default function Sidebar() {
 
                 <Menu />
 
-            </nav>
+            </div>
         </aside>
     )
 }

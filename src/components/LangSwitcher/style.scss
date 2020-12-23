@@ -11,8 +11,8 @@
             &:before { left: 2.625rem; }
 
             .lang-switcher__item {
-                &:first-child { color: $greylight; }
-                &:last-child { color: $base; }
+                &:first-child { color: var(--text-colour); opacity: 0.5;}
+                &:last-child { color: var(--subtle-colour); opacity: 1;}
             }
         }
     }
@@ -20,7 +20,7 @@
     label {
         position: relative;
         display: flex;
-        background: #EDEDE9;
+        background: var(--subtle-colour);
         border-radius: 2.5rem;
         cursor: pointer;
 
@@ -31,7 +31,7 @@
             top: 0.125rem;
             width: 2.25rem;
             height: 2.25rem;
-            background: $white;
+            background: var(--headline-colour);
             border-radius: 1.125rem;
             box-shadow: 0 0.125rem 0.5rem rgba($black, 0.1);
             transition: all 0.2s cubic-bezier(1, 0, 0, 1);
@@ -50,9 +50,9 @@
         height: 2.25rem;
         margin: 0.125rem;
         font-weight: bold;
-        color: $base;
+        color: var(--subtle-colour);
         transition: color 0.2s cubic-bezier(1, 0, 0, 1);
 
-        &:last-child { color: $greylight; }
+        &:last-child { color: var(--headline-colour); opacity: 0.5; }
     }
 }
