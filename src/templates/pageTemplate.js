@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import Sidebar from "../components/Sidebar"
 import NextButton from "../components/NextButton"
+import Layout from "../components/Layout"
 
 export default function Template({data, location, pageContext}) {
 
@@ -11,7 +12,7 @@ export default function Template({data, location, pageContext}) {
     const pageUrl = site.siteMetadata.siteUrl + location.pathname
 
     return (
-        <div className="main">
+        <Layout page={frontmatter.slug}>
 
             <Helmet>
                 <meta charSet="utf-8" />
@@ -49,7 +50,7 @@ export default function Template({data, location, pageContext}) {
 
             </main>
             
-        </div>
+        </Layout>
     )
 }
 

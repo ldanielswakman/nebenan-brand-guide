@@ -48,49 +48,8 @@ body {
 
 
 
-/* Layout */
 
-.main {
-    display: flex;
-    flex-direction: column;
-    min-width: 100vw;
-    min-height: 100vh;
-    justify-content: stretch;
-    align-items: stretch;
-}
-@media screen and (min-width: 768px) {
-    .main {
-        flex-direction: row;
-    }
-}
-
-.panel {
-    position: relative;
-    flex-basis: 100%;
-}
-
-/* Home panels */
-.panel--home-main {
-    display: flex;
-    flex-direction: column;
-    background: var(--bg-colour);
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-.panel--home-cover {
-    min-height: 60vw;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-@media screen and (min-width: 768px) {
-    .panel--home-main { flex-basis: 60%; }
-    .panel--home-cover { min-height: auto; flex-basis: 40%; order: 2; }
-}
-@media screen and (min-width: 1024px) {
-    .panel--home-main { flex-basis: 50%; }
-    .panel--home-cover { flex-basis: 50%; }
-}
+// Homepage intro group
 .intro-group {
     flex: 1;
     display: flex;
@@ -121,43 +80,6 @@ body {
     margin: 0 auto;
 }
 
-
-
-/* Panel layout */
-.panel--nav { flex-basis: 0; }
-.panel--full,
-.panel--left,
-.panel--right { flex-basis: 100%; }
-@media screen and (min-width: 768px) {
-    .panel--left { flex-basis: 60%; }
-    .panel--right { flex-basis: 40%; }
-}
-@media screen and (min-width: 1024px) {
-    .panel--nav { flex-basis: 25%; }
-    .panel--full { flex-basis: 75%; }
-    .panel--left { flex-basis: 50%; }
-    .panel--right { flex-basis: 25%; }
-}
-@media screen and (min-width: 1200px) {
-    .panel--nav { flex-basis: 20%; }
-    .panel--full { flex-basis: 80%; }
-    .panel--left { flex-basis: 45%; }
-    .panel--right { flex-basis: 35%; }
-}
-/* Panel styling */
-.panel--full, .panel--left {
-    position: relative;
-    box-shadow: 0 0 50px rgba($black, 0.1);
-    padding: 1.5rem;
-}
-@media screen and (min-width: 768px) {
-    .panel--full, .panel--left {
-        padding: 2rem 4rem;
-    }
-}
-@media screen and (min-width: 768px) {
-    .panel--right { min-height: auto; order: 2; }
-}
 
 
 
@@ -210,12 +132,17 @@ h1 {
     color: var(--headline-colour);
 }
 .heading3 {
-    margin: 1.75rem 0 3.25rem;
+    margin: 1.75rem 0 0.25rem;
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 600;
     color: var(--text-colour);
     letter-spacing: 1px;
+    opacity: 0.5;
+    
+    @include tabletAndUp {
+        margin-bottom: 3.25rem;
+    }
 }
 .heading4 {
     margin: 2rem 0 1rem;

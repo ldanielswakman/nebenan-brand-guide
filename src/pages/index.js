@@ -1,13 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
+
+import Layout from "../components/Layout"
 import Menu from "../components/Menu"
 import LangSwitcher from "../components/LangSwitcher"
 
 export default function Home({data}) {
   // const chapters = data.allMarkdownRemark.edges;
   return (
-    <div className="main">
+    <Layout page="home">
 
       <Helmet>
         <meta charSet="utf-8" />
@@ -35,7 +37,7 @@ export default function Home({data}) {
         <Menu home={true} />
 
       </main>
-    </div>
+    </Layout>
   )
 }
 

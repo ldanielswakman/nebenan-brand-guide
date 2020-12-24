@@ -32,6 +32,11 @@ $base: $grey-120;
         @content;
     }
 }
+@mixin desktopAndUp {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
 @mixin tabletWideAndDown {
     @media screen and (max-width: 1023px) {
         @content;
