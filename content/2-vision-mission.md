@@ -9,7 +9,7 @@ coverimage: "/images/mission.jpg"
 
 <h3 class="heading4">Vision</h3>
 
-<p><strong>Wir möchten, dass sich die Men- schen in ihrer Nachbarschaft begegnen und sich zuhause fühlen.</strong></p>
+<p><strong>Wir möchten, dass sich die Menschen in ihrer Nachbarschaft begegnen und sich zuhause fühlen.</strong></p>
 
 <p><strong>Denn:</strong> Wir sind fest davon überzeugt mit nebenan.de auch einen kleinen Beitrag zum großen Ganzen leisten zu können.</p>
 

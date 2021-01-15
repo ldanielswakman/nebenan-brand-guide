@@ -22,5 +22,14 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+      fonts: [{
+        family: `Open Sans`,
+        variants: [`400`, , `600`, `700`]
+      }],
+      },
+    },
   ],
 }
