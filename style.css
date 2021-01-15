@@ -146,7 +146,9 @@ body {
 
 /* Content formatting */
 .panel--full p,
-.panel--left p {
+.panel--left p,
+.panel--full ul,
+.panel--full ul {
     max-width: 60rem;
     font-size: 1rem;
     line-height: 1.625rem;
@@ -154,7 +156,9 @@ body {
 }
 @media screen and (min-width: 768px) {
     .panel--full p,
-    .panel--left p {
+    .panel--left p,
+    .panel--full ul,
+    .panel--full ul {
         font-size: 1.125rem;
         line-height: 1.875rem;
     }
