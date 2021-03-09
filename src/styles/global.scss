@@ -1,0 +1,237 @@
+@import './base.scss';
+
+:root {
+    --bg-colour: #{$white};
+    --bg-back-colour: #{$greylightest};
+    --subtle-colour: #{$greylighter};
+    --headline-colour: #{$base};
+    --text-colour: #{$greydark};
+
+    @include darkMode {
+        --bg-colour: #{$dark-1};
+        --bg-back-colour: #{$dark-2};
+        --subtle-colour: #{lighten($dark-1, 10%)};
+        --headline-colour: #{$white};
+        --text-colour: #{$greylighter};
+    }
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-colour);
+    color: var(--text-colour);
+    font-family: 'Open Sans';
+  
+    font-size: 100%;
+  
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+::selection {
+    background-color: $primary;
+    color: $white;
+}
+-moz-::selection {
+    background-color: $primary;
+    color: $white;
+}
+
+
+
+
+// Homepage intro group
+.intro-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0 3rem;
+    background-image: url('/images/small-skyline.svg');
+    background-size: 140%;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+
+    @include darkMode {
+        background-image: url('/images/small-skyline-dark.svg');
+    }
+}
+@media screen and (min-width: 768px) {
+    .intro-group {
+        background-size: contain;
+    }
+}
+.intro-group blockquote p {
+    font-size: 1.25rem;
+    color: #bbb;
+    font-weight: 500;
+    width: calc(100% - 6rem);
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+
+
+
+/* Content formatting */
+.panel--full,
+.panel--left {
+    p {
+        max-width: 60rem;
+        font-size: 1rem;
+        line-height: 1.625rem;
+        color: var(--text-colour);
+
+        @include tabletAndUp {
+            font-size: 1.125rem;
+            line-height: 1.875rem;
+        }
+
+        & + figure {
+            max-width: 72rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        a {
+            color: $primary;
+
+            &:hover {
+                box-shadow: 0 4px 0 -2px var(--subtle-colour);
+            }
+        }
+    }
+    blockquote p {
+        font-size: 2rem;
+        color: $primary;
+    }
+}
+
+
+
+
+/* Headlines */
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.heading1 {
+    margin: 1.5rem 0 1rem; 
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--headline-colour);
+}
+.heading2 {
+    margin: 0 0 3rem;
+    color: var(--headline-colour);
+}
+.heading3 {
+    margin: 1.75rem 0 0.25rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-colour);
+    letter-spacing: 1px;
+    opacity: 0.5;
+    
+    @include tabletAndUp {
+        margin-bottom: 3.25rem;
+    }
+}
+.heading4 {
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.heading5 {
+    margin: 2rem 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.heading5 + p { margin-top: 0; }
+.heading-logo {
+    display: flex;
+    margin: -1rem 0;
+    padding: 1rem 0;
+    color: inherit;
+}
+@media screen and (min-width: 1024px) {
+    .heading-logo { display: none; }
+}
+.heading-logo img {
+    width: 1.25rem;
+    margin-right: 0.5rem;
+}
+.heading-logo h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+
+
+a { text-decoration: none; }
+
+blockquote { margin: 0 0 2rem; }
+
+
+
+
+/* Content Columns */
+.row {
+    display: flex;
+    width: calc(100% + 2rem);
+    max-width: calc(100% + 2rem);
+    margin: 0 -1rem;
+    flex-direction: column;
+}
+.col { padding: 1rem; }
+@media screen and (min-width: 768px) {
+    .row { flex-direction: row; }
+}
+
+
+
+
+/* Figure */
+
+
+figure { margin: 0; padding: 0; }
+figure img { max-width: 100%; }
+
+.figure--bg {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    min-height: 60vw;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+.figure--bg img { display: none; }
+@media screen and (min-width: 768px) {
+    .figure--bg {
+        min-height: 100vh;
+    }
+}
+.figure--fullwidth {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
+@media screen and (min-width: 768px) {
+    .figure--fullwidth {
+        margin-left: -4rem;
+        margin-right: -4rem;
+    }
+}

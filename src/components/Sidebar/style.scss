@@ -1,0 +1,51 @@
+@import '../../styles/base.scss';
+
+.sidebar {
+    position: sticky;
+    top: 0;
+
+    @include tabletWideAndDown {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        z-index: 10;
+        min-height: auto;
+        width: 100%;
+        background: white;
+
+        .toc {
+            flex-direction: row;
+
+            &__section { padding-bottom: 0; }
+            &__header { padding: 1rem 1rem 1rem 0; }
+            &__title h3 { font-size: 1rem; line-height: 1.25rem; }
+            &__content { display: none; }
+        }
+    }
+
+    &__header {
+        padding: 2.5rem 1.25rem;
+
+        @include tabletWideAndDown {
+            display: none;
+        }
+
+        img { width: 2rem; margin-right: 1.25rem; }
+        
+        a {
+            display: flex;
+            color: inherit;
+        }
+        h2 {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+    }
+}
+
+
+@include tabletWideAndDown {
+    body.page--content { padding-bottom: 91px; }
+}

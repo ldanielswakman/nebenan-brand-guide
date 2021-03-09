@@ -1,0 +1,103 @@
+@import '../../styles/base.scss';
+
+.toc {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-end;
+    width: 100%;
+    margin-top: auto;
+    text-align: left;
+
+    &.toc--home {
+        flex-direction: row;
+    }
+    
+    &__section {
+        flex: 1;
+        padding-bottom: 2rem;
+        border-top: 1px solid var(--subtle-colour);
+
+        & + .toc__section {
+            border-left: 1px solid var(--subtle-colour);
+        }
+    }
+
+    &__header {
+        display: flex;
+        padding: 1.5rem 0 1.5rem;
+        color: $greymedium;
+
+        &:hover {
+            background: var(--bg-back-colour);
+            color: var(--headline-colour);
+        }
+
+        &.is-active {
+            color: $primary;
+            background: var(--bg-back-colour);
+        }
+
+        .toc--home & {
+            color: var(--headline-colour);
+        }
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 3rem;
+
+        svg path { fill: rgba(0, 0, 0, 0.3); }
+    }
+
+    &__title {
+        display: block;
+        flex: 1;
+
+        h3 {
+            margin: 0;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+    }
+
+    &__pretitle {
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        opacity: 0.4;
+    }
+
+    &__content {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        a {
+            display: block;
+            padding: 0.5rem 1rem 0.5rem 3rem;
+            color: var(--text-colour);
+            font-weight: regular;
+
+            &:hover {
+                background: var(--bg-back-colour);
+                color: var(--headline-colour);
+            }
+
+            &.is-active {
+                color: $primary;
+                font-weight: bold;
+            }
+
+            .toc--home & {
+                color: var(--text-colour);
+            }
+
+            &.is-disabled {
+                color: var(--subtle-colour);
+                cursor: not-allowed;
+            }
+        }
+    }
+}

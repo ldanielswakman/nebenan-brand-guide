@@ -1,0 +1,74 @@
+@import '../../styles/base.scss';
+
+.lang-switcher {
+    input {
+        position: absolute;
+        left: -9999px;
+        width: 0;
+        height: 0;
+    }
+
+    label {
+        position: relative;
+        display: flex;
+        background: var(--subtle-colour);
+        border-radius: 2.5rem;
+        cursor: pointer;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0.125rem;
+            top: 0.125rem;
+            width: 2.25rem;
+            height: 2.25rem;
+            background: var(--bg-colour);
+            border-radius: 1.125rem;
+            box-shadow: 0 0.125rem 0.5rem rgba($black, 0.1);
+            transition: all 0.2s cubic-bezier(1, 0, 0, 1);
+
+            @include darkMode {
+                background: var(--headline-colour);
+            }
+        }
+        &:hover:before {
+            box-shadow: 0 0.25rem 0.5rem rgba($black, 0.15);
+        }
+    }
+    input:checked ~ label {
+        &:before { left: 2.625rem; }
+    }
+
+    &__item {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        margin: 0.125rem;
+        font-weight: bold;
+        color: var(--headline-colour);
+        transition: color 0.2s cubic-bezier(1, 0, 0, 1);
+
+        @include darkMode {
+            color: var(--subtle-colour);
+        }
+
+        &:last-child { color: var(--headline-colour); opacity: 0.5; }
+    }
+    input:checked ~ label {
+        .lang-switcher__item {
+            &:first-child {color: var(--text-colour); opacity: 0.5;}
+            &:last-child {
+                color: var(--headline-colour);
+                opacity: 1;
+
+                @include darkMode {
+                    color: var(--subtle-colour);
+                }
+            }
+        }
+    }
+}
