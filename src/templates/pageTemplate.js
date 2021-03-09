@@ -33,10 +33,10 @@ export default function Template({data, location, pageContext}) {
 
                 <Link to="/" className="heading-logo">
                     <img src="/images/nebenan-monogram.svg" alt="" />
-                    <h2>Brand Guide</h2>
+                    <h2>{frontmatter.short_name}</h2>
                 </Link>
 
-                <h2 className="heading3">UNDERSTANDING THE BRAND</h2>
+                <h2 className="heading3">{frontmatter.section} THE BRAND</h2>
                 <h1 className="heading2">{frontmatter.title}</h1>
 
                 <div
@@ -59,6 +59,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        short_name
         description
         siteUrl
       }
@@ -69,6 +70,7 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM YYYY")
         slug
         title
+        section
         layout
         coverimage
       }

@@ -21,8 +21,8 @@ export default function Menu(props) {
                     <li><Link activeClassName="is-active" to="/understanding/story">Our Story</Link></li>
                     <li><Link activeClassName="is-active" to="/understanding/vision-mission">Vision, Mission</Link></li>
                     <li><Link activeClassName="is-active" to="/understanding/ecosystem">Ecosystem</Link></li>
-                    <li><Link activeClassName="is-active" className="is-disabled" to="/understanding/values">Values</Link></li>
-                    <li><Link activeClassName="is-active" className="is-disabled" to="/understanding/tone-of-voice">Tone of voice</Link></li>
+                    <li><Link activeClassName="is-active" to="/understanding/values">Values</Link></li>
+                    <li><Link activeClassName="is-active" to="/understanding/tone-of-voice">Tone of voice</Link></li>
                 </ul>
             </div>
             <div className="toc__section">
@@ -38,13 +38,13 @@ export default function Menu(props) {
                     </div>
                 </Link>
                 <ul className="toc__content">
-                    <li><Link activeClassName="is-active" className="is-disabled" to="/using/colours">Colours</Link></li>
-                    <li><Link activeClassName="is-active" className="is-disabled" to="/using/logo">Logo</Link></li>
-                    <li><Link activeClassName="is-active" className="is-disabled" to="/using/typography">Typography</Link></li>
-                    <li><Link activeClassName="is-active" className="is-disabled" to="/using/photography">Photography</Link></li>
-                    <li><Link activeClassName="is-active" className="is-disabled" to="/using/iconography">Iconography</Link></li>
-                    <li><Link activeClassName="is-active" className="is-disabled" to="/using/illustrations">Illustrations</Link></li>
-                    <li><Link activeClassName="is-active" className="is-disabled" to="/using/colours">Applications</Link></li>
+                    <li><Link activeClassName="is-active" to="/using/colours">Colours</Link></li>
+                    <li><Link activeClassName="is-active" to="/using/logo">Logo</Link></li>
+                    <li><Link activeClassName="is-active" to="/using/typography">Typography</Link></li>
+                    <li><Link activeClassName="is-active" to="/using/photography">Photography</Link></li>
+                    <li><Link activeClassName="is-active" to="/using/iconography">Iconography</Link></li>
+                    <li><Link activeClassName="is-active" to="/using/illustrations">Illustrations</Link></li>
+                    <li><Link activeClassName="is-active" to="/using/colours">Applications</Link></li>
                 </ul>
             </div>
         </section>

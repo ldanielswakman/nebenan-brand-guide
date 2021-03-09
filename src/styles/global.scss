@@ -84,32 +84,37 @@ body {
 
 
 /* Content formatting */
-.panel--full p,
-.panel--left p {
-    max-width: 60rem;
-    font-size: 1rem;
-    line-height: 1.625rem;
-    color: var(--text-colour);
-}
-@media screen and (min-width: 768px) {
-    .panel--full p,
-    .panel--left p {
-        font-size: 1.125rem;
-        line-height: 1.875rem;
+.panel--full,
+.panel--left {
+    p {
+        max-width: 60rem;
+        font-size: 1rem;
+        line-height: 1.625rem;
+        color: var(--text-colour);
+
+        @include tabletAndUp {
+            font-size: 1.125rem;
+            line-height: 1.875rem;
+        }
+
+        & + figure {
+            max-width: 72rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        a {
+            color: $primary;
+
+            &:hover {
+                box-shadow: 0 4px 0 -2px var(--subtle-colour);
+            }
+        }
+    }
+    blockquote p {
+        font-size: 2rem;
+        color: $primary;
     }
 }
-.panel--full p + figure,
-.panel--left p + figure {
-    max-width: 72rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-.panel--full blockquote p, 
-.panel--left blockquote p {
-    font-size: 2rem;
-    color: $primary;
-}
-
 
 
 

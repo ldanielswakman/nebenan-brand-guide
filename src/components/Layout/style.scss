@@ -73,6 +73,9 @@
         @include tabletAndUp {
             padding: 2rem 4rem;    
         }
+        @include darkMode {
+            box-shadow: 0 0 50px rgba($black, 0.2);
+        }
     }
     &--right { 
         @include tabletAndUp { min-height: auto; order: 2; }
