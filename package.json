@@ -16,6 +16,7 @@
   "dependencies": {
     "fontsource-open-sans": "^4.0.0",
     "gatsby": "^2.26.1",
+    "gatsby-plugin-google-gtag": "^3.0.0",
     "gatsby-plugin-react-helmet": "^3.7.0",
     "gatsby-plugin-sass": "^2.8.0",
     "gatsby-source-filesystem": "^2.8.0",

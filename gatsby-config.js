@@ -22,5 +22,13 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-HV013D124Q",
+        ],
+      },
+    },
   ],
 }
