@@ -44,7 +44,7 @@ export default function Menu(props) {
                     <li><Link activeClassName="is-active" to="/using/photography">Photography</Link></li>
                     <li><Link activeClassName="is-active" to="/using/iconography">Iconography</Link></li>
                     <li><Link activeClassName="is-active" to="/using/illustrations">Illustrations</Link></li>
-                    <li><Link activeClassName="is-active" to="/using/colours">Applications</Link></li>
+                    <li><Link activeClassName="is-active" to="/using/applications">Applications</Link></li>
                 </ul>
             </div>
         </section>
