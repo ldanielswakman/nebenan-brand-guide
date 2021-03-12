@@ -9,6 +9,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         ) {
           edges {
             node {
+              excerpt(format: MARKDOWN)
               frontmatter {
                 slug
                 title

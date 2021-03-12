@@ -7,15 +7,36 @@ import Menu from "../components/Menu"
 import LangSwitcher from "../components/LangSwitcher"
 
 export default function Home({data}) {
-  // const chapters = data.allMarkdownRemark.edges;
+
+  const meta = {
+    title: data.site.siteMetadata.title,
+    link: data.site.siteMetadata.siteUrl,
+    description: data.site.siteMetadata.description,
+    image: '/images/meta-image.jpg'
+  };
+
   return (
     <Layout page="home">
 
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{data.site.siteMetadata.title}</title>
-        <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+        <title>{meta.title}</title>
+        <link rel="canonical" href={meta.link} />
         <link id="favicon" rel="shortcut icon" href="/images/app-icon.png" />
+        <meta name="description" content={meta.description} />
+        <meta name="keywords" content="" />
+        <meta name="author" content="L Daniel Swakman, https://sincere.studio" />
+        
+        <meta property="og:image" content={meta.image} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:site_name" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ldanielswakman" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content={meta.image} />
       </Helmet>
 
       <aside className="panel panel--home-cover">

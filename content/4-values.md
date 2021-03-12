@@ -12,6 +12,7 @@ layout: full
 
 <h3 class="heading4">Unsere inneren Werte.</h3>
 <p>Im alltäglichen Betrieb müssen wir am laufenden Band Entscheidungen treffen. Mal große, mal kleine. Dabei den Überblick zu behalten, den Fokus nicht zu verlieren und aus der Vielzahl an Möglichkeiten die richtige Entscheidung im Sinne der Marke zu treffen ist immer eine Herausforderung. Drei einfache Leitmotive zu unserer inneren Einstellung helfen uns den Kurs zu halten.</p>
+<!-- endexcerpt -->
 
 <h4 class="heading5">Wir wirken im echten Leben</h4>
 <p>Ob Straßenfest, zusammen laufen gehen, Karten spielen, Fahrgemeinschaft bilden, das fehlende Salz beim Nachbarn borgen oder dem alten Herrn von oben die Einkäufe tragen: Nachbarschaft hat immer mit realen Begegnungen zu tun. Diese in ihrer ganzen Vielfalt zu fördern dient uns als Motiv für all unsere Aktivitäten. Denn so kommt die Nachbarschaft wieder zusammen und aus Fremden werden Bekannte und Freunde. Wir sind <strong>"Online für Offine"</strong>.</p>

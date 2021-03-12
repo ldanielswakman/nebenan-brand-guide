@@ -8,20 +8,40 @@ import Layout from "../components/Layout"
 export default function Template({data, location, pageContext}) {
 
     const { markdownRemark, site } = data
-    const { frontmatter, html } = markdownRemark
+    const { frontmatter, html, excerpt } = markdownRemark
     const pageUrl = site.siteMetadata.siteUrl + location.pathname
+    const meta = {
+      title: (frontmatter.title + " - " + site.siteMetadata.title),
+      link: pageUrl,
+      description: (excerpt.length > 0 && excerpt.length < 500) ? excerpt : site.siteMetadata.description,
+      image: frontmatter.coverimage ? (frontmatter.coverimage) : ('/images/meta-image.jpg')
+    };
 
     return (
         <Layout page={frontmatter.slug}>
 
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>{frontmatter.title} - {site.siteMetadata.title}</title>
-                <link rel="canonical" href={pageUrl} />
-                <link id="favicon" rel="shortcut icon" href="/images/app-icon.png" />
-            </Helmet>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>{meta.title}</title>
+            <link rel="canonical" href={meta.link} />
+            <link id="favicon" rel="shortcut icon" href="/images/app-icon.png" />
+            <meta name="description" content={meta.description} />
+            <meta name="keywords" content="" />
+            <meta name="author" content="L Daniel Swakman, https://sincere.studio" />
+            
+            <meta property="og:image" content={meta.image} />
+            <meta property="og:title" content={meta.title} />
+            <meta property="og:site_name" content={meta.title} />
+            <meta property="og:description" content={meta.description} />
 
-            <Sidebar />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@ldanielswakman" />
+            <meta name="twitter:title" content={meta.title} />
+            <meta name="twitter:description" content={meta.description} />
+            <meta name="twitter:image" content={meta.image} />
+          </Helmet>
+
+          <Sidebar />
 
             {frontmatter.layout === 'split' && (
               <aside className="panel panel--right">
@@ -66,6 +86,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
+      excerpt(format: MARKDOWN)
       frontmatter {
         date(formatString: "DD MMMM YYYY")
         slug

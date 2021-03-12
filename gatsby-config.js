@@ -21,7 +21,13 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        "excerpt_separator": `<!-- endexcerpt -->`
+      }
+
+    },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
