@@ -1,15 +1,13 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql, Link } from "gatsby"
 import { Helmet } from "react-helmet"
+
 import Sidebar from "../components/Sidebar"
 import NextButton from "../components/NextButton"
 import Layout from "../components/Layout"
-import {CopyToClipboard} from 'react-copy-to-clipboard'
+import ColourSwatch from "../components/ColourSwatch"
 
 export default function Template({data, location, pageContext}) {
-
-    const [clipboard, setClipboard] = useState('#B2CA06');
-    const [clipboardCopied, setClipboardCopied] = useState(false);
 
     const { markdownRemark, site } = data
     const { frontmatter, html, excerpt } = markdownRemark
@@ -63,17 +61,9 @@ export default function Template({data, location, pageContext}) {
                 <h2 className="heading3">{frontmatter.section} THE BRAND</h2>
                 <h1 className="heading2">{frontmatter.title}</h1>
 
-                <CopyToClipboard text={clipboard}
-                  onCopy={() => {
-                    setClipboardCopied(true);
-                    setTimeout(function() {
-                      setClipboardCopied(false)
-                    }.bind(this), 1000)
-                  }}>
-                  <button style={{ background: '#B2CA06', border: 'none', borderRadius: '8px', padding: '0.5rem 1rem', font: 'inherit', color: 'white', fontSize: '1.125rem', fontWeight: '600'}}>Copy to clipboard with span</button>
-                </CopyToClipboard>
-                {clipboardCopied ? <span style={{color: 'red'}}>Copied.</span> : null}
-                <p style={{ fontSize: '2rem', fontWeight: 600 }}>#B2CA06</p>
+                <ColourSwatch colour="#B2CA06" />
+
+                <ColourSwatch colour="#0090A1" />
 
                 <div
                     className="page-content"
