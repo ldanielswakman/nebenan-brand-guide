@@ -1,14 +1,17 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { Helmet } from "react-helmet"
+import rehypeReact from 'rehype-react'
+
 import Sidebar from "../components/Sidebar"
 import NextButton from "../components/NextButton"
 import Layout from "../components/Layout"
+import ColourSwatch from "../components/ColourSwatch"
 
 export default function Template({data, location, pageContext}) {
 
     const { markdownRemark, site } = data
-    const { frontmatter, html, excerpt } = markdownRemark
+    const { frontmatter, htmlAst, excerpt } = markdownRemark
     const pageUrl = site.siteMetadata.siteUrl + location.pathname
     const meta = {
       title: (frontmatter.title + " - " + site.siteMetadata.title),
@@ -16,6 +19,13 @@ export default function Template({data, location, pageContext}) {
       description: (excerpt.length > 0 && excerpt.length < 500) ? excerpt : site.siteMetadata.description,
       image: frontmatter.coverimage ? (frontmatter.coverimage) : ('/images/meta-image.jpg')
     };
+
+    const renderAst = new rehypeReact({
+      createElement: React.createElement,
+      components: { 
+        "colour-swatch": ColourSwatch,
+      }
+    }).Compiler
 
     return (
         <Layout page={frontmatter.slug}>
@@ -59,10 +69,9 @@ export default function Template({data, location, pageContext}) {
                 <h2 className="heading3">{frontmatter.section} THE BRAND</h2>
                 <h1 className="heading2">{frontmatter.title}</h1>
 
-                <div
-                    className="page-content"
-                    dangerouslySetInnerHTML={{ __html: html }}
-                    />
+                <div className="page-content">
+                  {renderAst(htmlAst)}
+                </div>
 
                 {pageContext.next !== null && (
                   <NextButton node={pageContext.next} />
@@ -85,7 +94,7 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+      htmlAst
       excerpt(format: MARKDOWN)
       frontmatter {
         date(formatString: "DD MMMM YYYY")
