@@ -3,9 +3,9 @@ import { graphql, Link } from "gatsby"
 import { Helmet } from "react-helmet"
 import rehypeReact from 'rehype-react'
 
+import Layout from "../components/Layout"
 import Sidebar from "../components/Sidebar"
 import NextButton from "../components/NextButton"
-import Layout from "../components/Layout"
 import ColourSwatch from "../components/ColourSwatch"
 
 export default function Template({data, location, pageContext}) {
