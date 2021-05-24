@@ -61,7 +61,7 @@ const IndexPage = ({ data, intl }) => {
               <tr key={post.id}>
                 <td><b>{post.title}</b></td>
                 <td>{post.node_locale}</td>
-                <td><Link href={post.slug}>{post.slug}</Link></td>
+                <td><Link to={"/" + post.slug}>{post.slug}</Link></td>
               </tr>
             )
           })}

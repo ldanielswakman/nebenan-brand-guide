@@ -3,11 +3,6 @@ import { IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
 
 import "./style.scss"
 
-const languageName = {
-    en: "English",
-    de: "Deutsch",
-}
-
 export default function LangSwitcher() {
     return (
         <div className="lang-switcher">
