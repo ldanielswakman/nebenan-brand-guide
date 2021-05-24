@@ -1,12 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
+import { injectIntl, Link, FormattedMessage } from "gatsby-plugin-intl"
 
 import Layout from "../components/Layout"
 import Menu from "../components/Menu"
 import LangSwitcher from "../components/LangSwitcher"
 
-export default function Home({ data }) {
+const IndexPage = ({ data, intl }) => {
 
   const meta = {
     title: data.site.siteMetadata.title,
@@ -51,11 +52,20 @@ export default function Home({ data }) {
           <h1 className="heading1">{data.site.siteMetadata.short_name}</h1>
           <blockquote><p>{data.site.siteMetadata.description}</p></blockquote>
 
+          <FormattedMessage id="title" />
+          <input type="text" placeholder={intl.formatMessage({ id: "title" })} />
+
+          <table style={{ textAlign: 'left', color: 'black' }}>
           {data.allContentfulChapter.nodes.map(post => {
             return (
-              <div key={post.id}>{post.title}</div>
+              <tr key={post.id}>
+                <td><b>{post.title}</b></td>
+                <td>{post.node_locale}</td>
+                <td><Link href={post.slug}>{post.slug}</Link></td>
+              </tr>
             )
           })}
+          </table>
 
           <LangSwitcher />
 
@@ -69,7 +79,7 @@ export default function Home({ data }) {
 }
 
 export const query = graphql`
-  query HomePageQuery {
+  query HomePageQuery($locale: String) {
     site {
       siteMetadata {
         title
@@ -89,12 +99,13 @@ export const query = graphql`
         }
       }
     }
-    allContentfulChapter {
+    allContentfulChapter(filter: {node_locale: { eq: $locale } }) {
       nodes {
-        id
         title
+        slug
         node_locale
       }
     } 
   }
 `
+export default injectIntl(IndexPage)

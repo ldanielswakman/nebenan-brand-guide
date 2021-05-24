@@ -48,6 +48,15 @@ module.exports = {
         spaceId: `xs6a8f4kp09q`,
         accessToken: `ZCUXTOEhheivs-pBnxQCoB647aLerSlzUQLP7CKv7Tw`,
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/locales`,
+        languages: [`en`, `de`],
+        defaultLanguage: `en`,
+        redirect: false,
+      },
+    },
   ],
 }

@@ -17,6 +17,7 @@
     "fontsource-open-sans": "^4.0.0",
     "gatsby": "^3.5.1",
     "gatsby-plugin-google-gtag": "^3.0.0",
+    "gatsby-plugin-intl": "^0.3.3",
     "gatsby-plugin-react-helmet": "^4.5.0",
     "gatsby-plugin-sass": "^4.5.0",
     "gatsby-remark-component": "^1.1.3",
