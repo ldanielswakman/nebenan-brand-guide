@@ -6,7 +6,7 @@ import Layout from "../components/Layout"
 import Menu from "../components/Menu"
 import LangSwitcher from "../components/LangSwitcher"
 
-export default function Home({data}) {
+export default function Home({ data }) {
 
   const meta = {
     title: data.site.siteMetadata.title,
@@ -26,7 +26,7 @@ export default function Home({data}) {
         <meta name="description" content={meta.description} />
         <meta name="keywords" content="" />
         <meta name="author" content="L Daniel Swakman, https://sincere.studio" />
-        
+
         <meta property="og:image" content={meta.image} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:site_name" content={meta.title} />
@@ -50,6 +50,12 @@ export default function Home({data}) {
           <img src="/images/nebenan-monogram.svg" alt="Brand Guide" />
           <h1 className="heading1">{data.site.siteMetadata.short_name}</h1>
           <blockquote><p>{data.site.siteMetadata.description}</p></blockquote>
+
+          {data.allContentfulChapter.nodes.map(post => {
+            return (
+              <div key={post.id}>{post.title}</div>
+            )
+          })}
 
           <LangSwitcher />
 
@@ -81,6 +87,13 @@ export const query = graphql`
             section
           }
         }
+      }
+    }
+    allContentfulChapter {
+      nodes {
+        id
+        title
+        node_locale
       }
     } 
   }
