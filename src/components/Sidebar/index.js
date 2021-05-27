@@ -4,7 +4,7 @@ import Menu from "../Menu"
 
 import "./style.scss"
 
-export default function Sidebar() {
+export default function Sidebar(props) {
     return (
         <aside className="panel panel--nav">
 
@@ -17,7 +17,7 @@ export default function Sidebar() {
                     </Link>
                 </section>
 
-                <Menu />
+                <Menu chapters={props.chapters} />
 
             </div>
         </aside>

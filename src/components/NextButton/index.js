@@ -9,8 +9,8 @@ export default function NextButton(props) {
         title: "Home"
     }
     if(props.node !== undefined) {
-        target.link = props.node.frontmatter.slug;
-        target.title = props.node.frontmatter.title;
+        target.link = props.node.slug;
+        target.title = props.node.title;
     }
 
     return (

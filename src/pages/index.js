@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
-import { injectIntl, Link, FormattedMessage } from "gatsby-plugin-intl"
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
 import Layout from "../components/Layout"
 import Menu from "../components/Menu"
@@ -15,6 +15,8 @@ const IndexPage = ({ data, intl }) => {
     description: data.site.siteMetadata.description,
     image: '/images/meta-image.jpg'
   };
+
+  const chapters = data.allContentfulChapter.nodes
 
   return (
     <Layout page="home">
@@ -53,25 +55,12 @@ const IndexPage = ({ data, intl }) => {
           <blockquote><p>{data.site.siteMetadata.description}</p></blockquote>
 
           <FormattedMessage id="title" />
-          <input type="text" placeholder={intl.formatMessage({ id: "title" })} />
-
-          <table style={{ textAlign: 'left', color: 'black' }}>
-          {data.allContentfulChapter.nodes.map(post => {
-            return (
-              <tr key={post.id}>
-                <td><b>{post.title}</b></td>
-                <td>{post.node_locale}</td>
-                <td><Link to={"/" + post.slug}>{post.slug}</Link></td>
-              </tr>
-            )
-          })}
-          </table>
 
           <LangSwitcher />
 
         </section>
 
-        <Menu home={true} />
+        <Menu chapters={chapters} home={true} />
 
       </main>
     </Layout>
@@ -88,22 +77,13 @@ export const query = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            slug
-            title
-            section
-          }
-        }
-      }
-    }
     allContentfulChapter(filter: {node_locale: { eq: $locale } }) {
       nodes {
         title
         slug
         node_locale
+        section
+        id
       }
     } 
   }

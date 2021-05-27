@@ -8,16 +8,17 @@ import Sidebar from "../components/Sidebar"
 import NextButton from "../components/NextButton"
 import ColourSwatch from "../components/ColourSwatch"
 
-export default function Template({ data, location, pageContext }) {
+const Template = ({ data, location, pageContext }) => {
 
-  const { markdownRemark, site } = data
-  const { frontmatter, htmlAst, excerpt } = markdownRemark
+  const { allContentfulChapter, contentfulChapter, site } = data
+  const chapters = allContentfulChapter.nodes
+  const page = contentfulChapter
   const pageUrl = site.siteMetadata.siteUrl + location.pathname
   const meta = {
-    title: (frontmatter.title + " - " + site.siteMetadata.title),
+    title: (page.title + " - " + site.siteMetadata.title),
     link: pageUrl,
-    description: (excerpt.length > 0 && excerpt.length < 500) ? excerpt : site.siteMetadata.description,
-    image: frontmatter.coverimage ? (frontmatter.coverimage) : ('/images/meta-image.jpg')
+    description: site.siteMetadata.description,
+    image: page.coverImage ? (page.coverImage) : ('/images/meta-image.jpg')
   };
 
   const renderAst = new rehypeReact({
@@ -28,7 +29,7 @@ export default function Template({ data, location, pageContext }) {
   }).Compiler
 
   return (
-    <Layout page={frontmatter.slug}>
+    <Layout page={page.slug}>
 
       <Helmet>
         <meta charSet="utf-8" />
@@ -51,26 +52,26 @@ export default function Template({ data, location, pageContext }) {
         <meta name="twitter:image" content={meta.image} />
       </Helmet>
 
-      <Sidebar />
+      <Sidebar chapters={chapters} />
 
-      {frontmatter.layout === 'split' && (
+      {page.layout === 'split' && (
         <aside className="panel panel--right">
-          <figure className="figure--bg" style={{ backgroundImage: "url('" + frontmatter.coverimage + "')" }}><img src={frontmatter.coverimage} alt={frontmatter.title} /></figure>
+          <figure className="figure--bg" style={{ backgroundImage: "url('" + page.coverImage + "')" }}><img src={page.coverImage} alt={page.title} /></figure>
         </aside>
       )}
 
-      <main className={`panel panel--${frontmatter.layout === 'split' ? 'left' : 'full'}`}>
+      <main className={`panel panel--${page.layout === 'split' ? 'left' : 'full'}`}>
 
         <Link to="/" className="heading-logo">
           <img src="/images/nebenan-monogram.svg" alt="" />
-          <h2>{frontmatter.short_name}</h2>
+          <h2>{site.siteMetadata.short_name}</h2>
         </Link>
 
-        <h2 className="heading3">{frontmatter.section} THE BRAND</h2>
-        <h1 className="heading2">{frontmatter.title}</h1>
+        <h2 className="heading3">{page.section} THE BRAND</h2>
+        <h1 className="heading2">{page.title}</h1>
 
         <div className="page-content">
-          {renderAst(htmlAst)}
+          <p>{page.content.raw}</p>
         </div>
 
         {pageContext.next !== null && (
@@ -84,7 +85,7 @@ export default function Template({ data, location, pageContext }) {
 }
 
 export const pageQuery = graphql`
-  query ContentFulChapter($slug: String, $locale: String) {
+  query pageQuery($slug: String, $locale: String) {
     site {
       siteMetadata {
         title
@@ -93,10 +94,32 @@ export const pageQuery = graphql`
         siteUrl
       }
     }
-    contentfulChapter(slug: { eq: $slug }, node_locale: { eq: $locale }) {
+    contentfulChapter(slug: { eq: $slug }) {
+      id
       slug
-      node_locale
       title
+      node_locale
+      section
+      layout
+      coverImage {
+        id
+        file {
+          url
+        }
+      }
+      content {
+        raw
+      }
+    }
+    allContentfulChapter(filter: {node_locale: { eq: $locale } }) {
+      nodes {
+        title
+        slug
+        node_locale
+        section
+        id
+      }
     }
   }
 `
+export default Template
