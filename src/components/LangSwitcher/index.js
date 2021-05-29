@@ -1,25 +1,33 @@
-import React from "react"
-import { IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
+import React, { useState } from "react"
+import { injectIntl, IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
 
 import "./style.scss"
 
-export default function LangSwitcher() {
+const LangSwitcher = ({ intl }) => {
+
+    const [selected, setSelected] = useState(intl.locale);
+
     return (
-        <div className="lang-switcher">
-
-            <input type="checkbox" id="lang-switcher" />
-            <label htmlFor="lang-switcher">
-                <IntlContextConsumer>
-                    {({ languages, language: currentLocale }) =>
-                        languages.map(language => (
-                            <div onClick={() => changeLocale(language)} key={language} className={`lang-switcher__item ${language === currentLocale ? 'current' : ''}`}>
-                                {language.toUpperCase()}
-                            </div>
-                        ))
-                    }
-                </IntlContextConsumer>
-            </label>
-
+        <div className="lang-switcher" data-active={selected}>
+            <IntlContextConsumer>
+                {({ languages, language: currentLocale }) =>
+                    languages.map(language => (
+                        <>
+                            {(language === currentLocale) ? (
+                                <div key={language} className="lang-switcher__item current">
+                                    {language.toUpperCase()}
+                                </div>
+                            ) : (
+                                <div onClick={() => { setSelected(language); changeLocale(language) }} key={language} className="lang-switcher__item">
+                                    {language.toUpperCase()}
+                                </div>
+                            )}
+                        </>
+                    ))
+                }
+            </IntlContextConsumer>
         </div>
     )
 }
+
+export default injectIntl(LangSwitcher)
