@@ -28,7 +28,7 @@ const Menu = (props) => {
                 </Link>
                 <ul className="toc__content">
                     {splitChapters.understanding.map(chapter => (
-                        <li key={'understanding'+chapter.id}><Link activeClassName="is-active" to={chapter.section + '/' + chapter.slug}>{chapter.title}</Link></li>
+                        <li key={'understanding'+chapter.id}><Link activeClassName="is-active" to={'/' + chapter.node_locale + '/' + chapter.section + '/' + chapter.slug}>{chapter.title}</Link></li>
                     ))}
                 </ul>
             </div>
@@ -46,7 +46,7 @@ const Menu = (props) => {
                 </Link>
                 <ul className="toc__content">
                     {splitChapters.using.map(chapter => (
-                        <li key={'using'+chapter.id}><Link activeClassName="is-active" to={chapter.section + '/' + chapter.slug}>{chapter.title}</Link></li>
+                        <li key={'using'+chapter.id}><Link activeClassName="is-active" to={'/' + chapter.node_locale + '/' + chapter.section + '/' + chapter.slug}>{chapter.title}</Link></li>
                     ))}
                 </ul>
             </div>
