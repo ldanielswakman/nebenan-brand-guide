@@ -1,7 +1,9 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { injectIntl, FormattedMessage, useIntl } from "gatsby-plugin-intl"
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 import { Helmet } from "react-helmet"
+import { BLOCKS } from "@contentful/rich-text-types"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 // import rehypeReact from 'rehype-react'
 
 import Layout from "../components/Layout"
@@ -19,10 +21,17 @@ const Template = ({ data, location, pageContext }) => {
     title: (page.title + " - " + site.siteMetadata.title),
     link: pageUrl,
     description: site.siteMetadata.description,
-    image: page.coverImage ? (page.coverImage) : ('/images/meta-image.jpg')
+    image: page.coverImage ? (page.coverImage.file.url) : ('/images/meta-image.jpg')
   };
 
-  const intl = useIntl()
+  const H3 = ({ children }) => <h3 className="heading4">{children}</h3>
+
+  const options = {
+    renderNode: {
+      [BLOCKS.HEADING_3]: (node, children) => <H3>{children}</H3>
+    }
+  }
+
 
   // const renderAst = new rehypeReact({
   //   createElement: React.createElement,
@@ -59,7 +68,7 @@ const Template = ({ data, location, pageContext }) => {
 
       {page.layout === 'split' && (
         <aside className="panel panel--right">
-          <figure className="figure--bg" style={{ backgroundImage: "url('" + page.coverImage + "')" }}><img src={page.coverImage} alt={page.title} /></figure>
+          <figure className="figure--bg" style={{ backgroundImage: "url('" + page.coverImage.file.url + "')" }}><img src={page.coverImage} alt={page.title} /></figure>
         </aside>
       )}
 
@@ -69,15 +78,13 @@ const Template = ({ data, location, pageContext }) => {
           <img src="/images/nebenan-monogram.svg" alt="" />
           <h2>{site.siteMetadata.short_name}</h2>
         </Link>
-        
+
 
         <h2 className="heading3"><FormattedMessage id="section_1_title" /></h2>
         <h1 className="heading2">{page.title}</h1>
 
-        {intl.locale}
-
         <div className="page-content">
-          <p>{page.content.raw}</p>
+          {renderRichText(page.content, options)}
         </div>
 
         {pageContext.next !== null && (
