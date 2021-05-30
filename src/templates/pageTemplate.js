@@ -25,10 +25,12 @@ const Template = ({ data, location, pageContext }) => {
   };
 
   const H3 = ({ children }) => <h3 className="heading4">{children}</h3>
+  const H4 = ({ children }) => <h4 className="heading5">{children}</h4>
 
   const options = {
     renderNode: {
-      [BLOCKS.HEADING_3]: (node, children) => <H3>{children}</H3>
+      [BLOCKS.HEADING_3]: (node, children) => <H3>{children}</H3>,
+      [BLOCKS.HEADING_4]: (node, children) => <H4>{children}</H4>
     }
   }
 
