@@ -7,7 +7,7 @@ import Layout from "../components/Layout"
 import Menu from "../components/Menu"
 import LangSwitcher from "../components/LangSwitcher"
 
-const IndexPage = ({ data, intl }) => {
+const IndexPage = ({ data }) => {
 
   const meta = {
     title: data.site.siteMetadata.title,
@@ -51,10 +51,8 @@ const IndexPage = ({ data, intl }) => {
         <section className="intro-group">
 
           <img src="/images/nebenan-monogram.svg" alt="Brand Guide" />
-          <h1 className="heading1">{data.site.siteMetadata.short_name}</h1>
-          <blockquote><p>{data.site.siteMetadata.description}</p></blockquote>
-
-          <FormattedMessage id="title" />
+          <h1 className="heading1"><FormattedMessage id="short_name" /></h1>
+          <blockquote><p><FormattedMessage id="description" /></p></blockquote>
 
           <LangSwitcher />
 

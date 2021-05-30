@@ -24,6 +24,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         edges {
           node {
             slug
+            node_locale
+            section
           }
         }
       }
@@ -38,12 +40,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const chapters = result.data.allContentfulChapter.edges
   chapters.forEach(({node}, index) => {
     createPage({
-      path: node.slug,
+      path: node.section + '/' + node.slug,
       component: pageTemplate,
       context: {
         // additional data can be passed via context
         slug: node.slug,
-        next: index === (chapters.length - 1) ? null : chapters[index + 1].node
+        next: index === (chapters.length - 1) ? null : chapters[index + 1].node,
+        locale: node.node_locale
       },
     })
   })

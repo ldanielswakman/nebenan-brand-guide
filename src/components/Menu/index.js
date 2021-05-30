@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
 import "./style.scss"
 
-export default function Menu(props) {
+const Menu = (props) => {
 
     const splitChapters = {
       'understanding': props.chapters.filter(chapter => chapter.section === "understanding"),
@@ -21,13 +22,13 @@ export default function Menu(props) {
                         </svg>
                     </div>
                     <div className="toc__title">
-                        <div className="toc__pretitle">PART 1</div>
-                        <h3>Understanding the Brand</h3>
+                        <div className="toc__pretitle"><FormattedMessage id="section_1_pretitle" /></div>
+                        <h3><FormattedMessage id="section_1_title" /></h3>
                     </div>
                 </Link>
                 <ul className="toc__content">
                     {splitChapters.understanding.map(chapter => (
-                        <li key={'understanding'+chapter.id}><Link activeClassName="is-active" to={"/" + chapter.slug}>{chapter.title}</Link></li>
+                        <li key={'understanding'+chapter.id}><Link activeClassName="is-active" to={chapter.section + '/' + chapter.slug}>{chapter.title}</Link></li>
                     ))}
                 </ul>
             </div>
@@ -39,16 +40,18 @@ export default function Menu(props) {
                         </svg>
                     </div>
                     <div className="toc__title">
-                        <div className="toc__pretitle">PART 2</div>
-                        <h3>Using the Brand</h3>
+                        <div className="toc__pretitle"><FormattedMessage id="section_2_pretitle" /></div>
+                        <h3><FormattedMessage id="section_2_title" /></h3>
                     </div>
                 </Link>
                 <ul className="toc__content">
                     {splitChapters.using.map(chapter => (
-                        <li key={'using'+chapter.id}><Link activeClassName="is-active" to={"/" + chapter.slug}>{chapter.title}</Link></li>
+                        <li key={'using'+chapter.id}><Link activeClassName="is-active" to={chapter.section + '/' + chapter.slug}>{chapter.title}</Link></li>
                     ))}
                 </ul>
             </div>
         </section>
     )
 }
+
+export default injectIntl(Menu)

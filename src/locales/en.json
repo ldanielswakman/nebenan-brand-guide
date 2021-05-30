@@ -1,4 +1,9 @@
 {
-    "title": "Gatsby English",
-    "description": "Project description"
+    "name": "Nebenan Brand Guide",
+    "short_name": "Brand Guide",
+    "description": "Knowing how to communicate the nebenan.de brand — inside the company and outwards.",
+    "section_1_pretitle": "PART 1",
+    "section_1_title": "Understanding the Brand",
+    "section_2_pretitle": "PART 2",
+    "section_2_title": "Using the Brand"
 }

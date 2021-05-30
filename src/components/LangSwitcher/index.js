@@ -18,9 +18,9 @@ const LangSwitcher = ({ intl }) => {
                                     {language.toUpperCase()}
                                 </div>
                             ) : (
-                                <div onClick={() => { setSelected(language); changeLocale(language) }} key={language} className="lang-switcher__item">
+                                <button onClick={() => { setSelected(language); changeLocale(language) }} key={language} className="lang-switcher__item">
                                     {language.toUpperCase()}
-                                </div>
+                                </button>
                             )}
                         </>
                     ))

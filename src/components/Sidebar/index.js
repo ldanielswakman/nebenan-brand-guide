@@ -1,19 +1,24 @@
 import React from "react"
 import { Link } from "gatsby"
+import { injectIntl, FormattedMessage, useIntl } from "gatsby-plugin-intl"
+
 import Menu from "../Menu"
 
 import "./style.scss"
 
-export default function Sidebar(props) {
+const Sidebar = (props) => {
+
+    const intl = useIntl()
+
     return (
         <aside className="panel panel--nav">
 
             <div className="sidebar">
 
                 <section className="sidebar__header">
-                    <Link to="/">
+                    <Link to={`/` + intl.locale}>
                         <img src="/images/nebenan-monogram.svg" alt="" />
-                        <h2>Brand Guide</h2>
+                        <h2><FormattedMessage id="short_name" /></h2>
                     </Link>
                 </section>
 
@@ -23,3 +28,5 @@ export default function Sidebar(props) {
         </aside>
     )
 }
+
+export default injectIntl(Sidebar)

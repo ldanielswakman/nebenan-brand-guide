@@ -1,4 +1,9 @@
 {
-    "title": "Gatsby Deutsch",
-    "description": "Projektbeschreibung"
+    "name": "Nebenan Brand Guide",
+    "short_name": "Brand Guide",
+    "description": "Wissen, wie man die Marke nebenan.de kommuniziert - innerhalb und außerhalb des Unternehmens.",
+    "section_1_pretitle": "TEIL 1",
+    "section_1_title": "Die Marke verstehen",
+    "section_2_pretitle": "TEIL 2",
+    "section_2_title": "Die Marke verwenden"
 }

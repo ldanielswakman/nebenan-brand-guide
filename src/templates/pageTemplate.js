@@ -1,12 +1,13 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { injectIntl, FormattedMessage, useIntl } from "gatsby-plugin-intl"
 import { Helmet } from "react-helmet"
-import rehypeReact from 'rehype-react'
+// import rehypeReact from 'rehype-react'
 
 import Layout from "../components/Layout"
 import Sidebar from "../components/Sidebar"
 import NextButton from "../components/NextButton"
-import ColourSwatch from "../components/ColourSwatch"
+// import ColourSwatch from "../components/ColourSwatch"
 
 const Template = ({ data, location, pageContext }) => {
 
@@ -21,12 +22,14 @@ const Template = ({ data, location, pageContext }) => {
     image: page.coverImage ? (page.coverImage) : ('/images/meta-image.jpg')
   };
 
-  const renderAst = new rehypeReact({
-    createElement: React.createElement,
-    components: {
-      "colour-swatch": ColourSwatch,
-    }
-  }).Compiler
+  const intl = useIntl()
+
+  // const renderAst = new rehypeReact({
+  //   createElement: React.createElement,
+  //   components: {
+  //     "colour-swatch": ColourSwatch,
+  //   }
+  // }).Compiler
 
   return (
     <Layout page={page.slug}>
@@ -66,9 +69,12 @@ const Template = ({ data, location, pageContext }) => {
           <img src="/images/nebenan-monogram.svg" alt="" />
           <h2>{site.siteMetadata.short_name}</h2>
         </Link>
+        
 
-        <h2 className="heading3">{page.section} THE BRAND</h2>
+        <h2 className="heading3"><FormattedMessage id="section_1_title" /></h2>
         <h1 className="heading2">{page.title}</h1>
+
+        {intl.locale}
 
         <div className="page-content">
           <p>{page.content.raw}</p>
@@ -122,4 +128,4 @@ export const pageQuery = graphql`
     }
   }
 `
-export default Template
+export default injectIntl(Template)
