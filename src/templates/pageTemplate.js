@@ -4,12 +4,11 @@ import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 import { Helmet } from "react-helmet"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
-// import rehypeReact from 'rehype-react'
 
 import Layout from "../components/Layout"
 import Sidebar from "../components/Sidebar"
 import NextButton from "../components/NextButton"
-// import ColourSwatch from "../components/ColourSwatch"
+import ColourSwatch from "../components/ColourSwatch"
 
 const Template = ({ data, location, pageContext }) => {
 
@@ -24,23 +23,16 @@ const Template = ({ data, location, pageContext }) => {
     image: page.coverImage ? (page.coverImage.file.url) : ('/images/meta-image.jpg')
   };
 
-  const H3 = ({ children }) => <h3 className="heading4">{children}</h3>
-  const H4 = ({ children }) => <h4 className="heading5">{children}</h4>
-
   const options = {
     renderNode: {
-      [BLOCKS.HEADING_3]: (node, children) => <H3>{children}</H3>,
-      [BLOCKS.HEADING_4]: (node, children) => <H4>{children}</H4>
+      [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+        const { name, colour } = node.data.target;
+        return <ColourSwatch name={name} colour={colour} />
+      },
+      [BLOCKS.HEADING_3]: (node, children) => <h3 className="heading4">{children}</h3>,
+      [BLOCKS.HEADING_4]: (node, children) => <h4 className="heading5">{children}</h4>
     }
   }
-
-
-  // const renderAst = new rehypeReact({
-  //   createElement: React.createElement,
-  //   components: {
-  //     "colour-swatch": ColourSwatch,
-  //   }
-  // }).Compiler
 
   return (
     <Layout page={page.slug}>
@@ -86,6 +78,7 @@ const Template = ({ data, location, pageContext }) => {
         <h1 className="heading2">{page.title}</h1>
 
         <div className="page-content">
+          <code>{page.content.raw}</code>
           {renderRichText(page.content, options)}
         </div>
 
@@ -124,6 +117,13 @@ export const pageQuery = graphql`
       }
       content {
         raw
+        references {
+          ... on ContentfulColourSwatch {
+            contentful_id
+            name
+            colour
+          }
+        }
       }
     }
     allContentfulChapter(filter: {node_locale: { eq: $locale } }) {
