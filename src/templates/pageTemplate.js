@@ -78,7 +78,6 @@ const Template = ({ data, location, pageContext }) => {
         <h1 className="heading2">{page.title}</h1>
 
         <div className="page-content">
-          <code>{page.content.raw}</code>
           {renderRichText(page.content, options)}
         </div>
 
