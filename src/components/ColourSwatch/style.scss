@@ -1,8 +1,10 @@
-@import '../../styles/base.scss';
+@import "../../styles/base.scss";
 
 .colour-swatch {
     position: relative;
-    display: flex;
+    display: inline-flex;
+    width: 33%;
+    min-width: 18rem;
     align-items: center;
     gap: 1rem;
     border-radius: 0.5rem;
@@ -23,7 +25,8 @@
         background: var(--subtle-colour);
     }
 
-    h4, p {
+    h4,
+    p {
         margin: 0;
         line-height: 1.375rem;
     }

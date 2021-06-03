@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import "./style.scss"
 import {CopyToClipboard} from 'react-copy-to-clipboard'
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
-export default function ColourSwatch(props) {
+const ColourSwatch = (props) => {
 
     const [copiedActive, setCopiedActive] = useState(false);
 
@@ -20,13 +21,15 @@ export default function ColourSwatch(props) {
                 <div className="text">
                     <h4>{props.name || 'Swatch'}</h4>
                     <p>{props.colour}</p>
-                    <p className="subtle">Click to copy</p>
+                    <p className="subtle"><FormattedMessage id="click_to_copy" /></p>
                 </div>
                 <div className={copiedActive ? 'message is-active' : 'message'}>
-                    <span>Copied to clipboard!</span>
+                    <span><FormattedMessage id="copied" /></span>
                 </div>
             </div>
             
         </CopyToClipboard>
     )
 }
+
+export default injectIntl(ColourSwatch)

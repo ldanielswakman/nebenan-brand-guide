@@ -25,12 +25,20 @@ const Template = ({ data, location, pageContext }) => {
 
   const options = {
     renderNode: {
+      [BLOCKS.HEADING_3]: (node, children) => <h3 className="heading4">{children}</h3>,
+      [BLOCKS.HEADING_4]: (node, children) => <h4 className="heading5">{children}</h4>,
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const { title, description, fixed } = node.data.target;
+        return (
+          <figure className={description}>
+            <img src={fixed.src} alt={title} />
+          </figure>
+        )
+      },
       [BLOCKS.EMBEDDED_ENTRY]: (node) => {
         const { name, colour } = node.data.target;
         return <ColourSwatch name={name} colour={colour} />
       },
-      [BLOCKS.HEADING_3]: (node, children) => <h3 className="heading4">{children}</h3>,
-      [BLOCKS.HEADING_4]: (node, children) => <h4 className="heading5">{children}</h4>
     }
   }
 
@@ -117,6 +125,15 @@ export const pageQuery = graphql`
       content {
         raw
         references {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            title
+            description
+            fixed(width: 1600) {
+              src
+            }
+          }
           ... on ContentfulColourSwatch {
             contentful_id
             name
