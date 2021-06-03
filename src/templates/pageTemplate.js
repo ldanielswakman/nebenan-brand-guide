@@ -28,10 +28,10 @@ const Template = ({ data, location, pageContext }) => {
       [BLOCKS.HEADING_3]: (node, children) => <h3 className="heading4">{children}</h3>,
       [BLOCKS.HEADING_4]: (node, children) => <h4 className="heading5">{children}</h4>,
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        const { title, description, fixed } = node.data.target;
+        const { title, description, file } = node.data.target;
         return (
           <figure className={description}>
-            <img src={fixed.src} alt={title} />
+            <img src={file.url} alt={title} />
           </figure>
         )
       },
@@ -130,6 +130,9 @@ export const pageQuery = graphql`
             __typename
             title
             description
+            file {
+              url
+            }
             fixed(width: 1600) {
               src
             }

@@ -3,13 +3,18 @@
 .colour-swatch {
     position: relative;
     display: inline-flex;
-    width: 33%;
+    width: 100%;
     min-width: 18rem;
     align-items: center;
     gap: 1rem;
     border-radius: 0.5rem;
+    margin-left: -1rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
+
+    @include tabletAndUp {
+        width: 33%;
+    }
 
     &:hover {
         background: var(--bg-back-colour);
