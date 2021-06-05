@@ -1,4 +1,4 @@
-@import '../../styles/base.scss';
+@import "../../styles/base.scss";
 
 .sidebar {
     position: sticky;
@@ -18,10 +18,69 @@
         .toc {
             flex-direction: row;
 
-            &__section { padding-bottom: 0; }
-            &__header { padding: 1rem 1rem 1rem 0; }
-            &__title h3 { font-size: 1rem; line-height: 1.25rem; }
-            &__content { display: none; }
+            &__section {
+                padding-bottom: 0;
+
+                &.isActive {
+                    position: relative;
+                    z-index: 4;
+                    border-top-color: var(--bg-back-colour);
+
+                    .toc__title {
+                        color: $primary;
+                    }
+
+                    .toc__content {
+                        position: absolute;
+                        bottom: calc(100% + 1px);
+                        left: 0;
+                        width: 100vw;
+                        display: block;
+                        padding: 1rem 0;
+                        background: var(--bg-back-colour);
+                        box-shadow: 0 0 -50px rgba($black, 0.1);
+
+                        @include darkMode {
+                            box-shadow: 0 0 -50px rgba($black, 0.2);
+                        }
+
+                        // &:before {
+                        //     content: "";
+                        //     position: absolute;
+                        //     top: 100%;
+                        //     right: 0;
+                        //     width: 50%;
+                        //     height: 6rem;
+                        //     background-color: var(--bg-colour);
+                        //     opacity: 0.9;
+                        // }
+                    }
+                }
+                &:last-child.isActive .toc__content {
+                    left: -100%;
+                    
+                    // &:before {
+                    //     right: auto;
+                    //     left: 0;
+                    // }
+                }
+            }
+            &__header {
+                padding: 1rem 1rem 1rem 0;
+            }
+            &__title h3 {
+                font-size: 1rem;
+                line-height: 1.25rem;
+            }
+            &__content {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and (max-height: 700px) {
+        .toc__pretitle {
+            display: none;
         }
     }
 
@@ -32,8 +91,11 @@
             display: none;
         }
 
-        img { width: 2rem; margin-right: 1.25rem; }
-        
+        img {
+            width: 2rem;
+            margin-right: 1.25rem;
+        }
+
         a {
             display: flex;
             color: inherit;
@@ -45,7 +107,8 @@
     }
 }
 
-
 @include tabletWideAndDown {
-    body.page--content { padding-bottom: 91px; }
+    body.page--content {
+        padding-bottom: 91px;
+    }
 }

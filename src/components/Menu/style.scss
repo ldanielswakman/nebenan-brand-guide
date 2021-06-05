@@ -1,4 +1,4 @@
-@import '../../styles/base.scss';
+@import "../../styles/base.scss";
 
 .toc {
     display: flex;
@@ -11,7 +11,7 @@
     &.toc--home {
         flex-direction: row;
     }
-    
+
     &__section {
         flex: 1;
         padding-bottom: 2rem;
@@ -48,7 +48,9 @@
         align-items: center;
         flex-basis: 3rem;
 
-        svg path { fill: rgba(0, 0, 0, 0.3); }
+        svg path {
+            fill: rgba(0, 0, 0, 0.3);
+        }
     }
 
     &__title {

@@ -251,3 +251,10 @@ figure {
         margin-right: 2rem;
     }
 }
+.figure--half {
+    @include tabletAndUp {
+        display: inline-block;
+        width: calc(50% - 2rem);
+        margin-right: 2rem;
+    }
+}
