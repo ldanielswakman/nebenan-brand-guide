@@ -145,7 +145,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulChapter(filter: {node_locale: { eq: $locale } }) {
+    allContentfulChapter(
+      sort: { order: ASC, fields: [date] }
+      filter: {node_locale: { eq: $locale } }
+    ) {
       nodes {
         title
         slug

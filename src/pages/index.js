@@ -75,7 +75,10 @@ export const query = graphql`
         siteUrl
       }
     }
-    allContentfulChapter(filter: {node_locale: { eq: $locale } }) {
+    allContentfulChapter(
+      filter: {node_locale: { eq: $locale } }
+      sort: { order: ASC, fields: [date] }
+    ) {
       nodes {
         title
         slug
