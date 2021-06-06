@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { injectIntl, FormattedMessage, useIntl } from "gatsby-plugin-intl"
 
 import Menu from "../Menu"
+import InstallPrompt from "../InstallPrompt"
 
 import "./style.scss"
 
@@ -23,6 +24,8 @@ const Sidebar = (props) => {
                 </section>
 
                 <Menu chapters={props.chapters} />
+
+                <InstallPrompt />
 
             </div>
         </aside>

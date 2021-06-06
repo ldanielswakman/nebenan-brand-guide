@@ -17,8 +17,10 @@
         padding-bottom: 2rem;
         border-top: 1px solid var(--subtle-colour);
 
-        & + .toc__section {
-            border-left: 1px solid var(--subtle-colour);
+        @include tabletWideAndDown {
+            & + .toc__section {
+                border-left: 1px solid var(--subtle-colour);
+            }
         }
     }
 
