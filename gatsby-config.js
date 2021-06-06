@@ -58,5 +58,18 @@ module.exports = {
         redirect: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Nebenan Brand Guide`,
+        short_name: `Brand Guide`,
+        start_url: `/`,
+        background_color: `#b2ca06`,
+        theme_color: `#ffffff`,
+        display: `standalone`,
+        icon: `public/images/app-icon.png`
+      },
+    },
+    `gatsby-plugin-offline`
   ],
 }
