@@ -1,25 +1,58 @@
-@import '../../styles/base.scss';
+@import "../../styles/base.scss";
 
 .install-prompt {
-    padding: 1rem 1.5rem 1rem 2.5rem;
-    background: #687424;
+    max-height: 0;
+    padding: 0;
+    background: #E9EDCE;
     transform: translateX(-5rem);
     opacity: 0;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
-    &.isActive {
-        transform: translateX(0);
-        opacity: 1;
+    @include darkMode {
+        background: #687424;
     }
 
-    h4 { margin: 0; }
-    p { margin: 0; opacity: 0.5;}
+    @include tabletWideAndDown {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .button--reveal {
+            display: none;
+        }
+        p {
+            font-size: 0.875rem;
+        }
+    }
+
+    &.isActive {
+        max-height: 10rem;
+        padding: 1rem 1.5rem 1rem 2.5rem;
+        transform: translateX(0);
+        opacity: 1;
+
+        @include tabletWideAndDown {
+            padding: 1rem;
+        }
+    }
+
+    h4 {
+        margin: 0;
+    }
+    p {
+        margin: 0;
+        opacity: 0.5;
+    }
 
     .actions {
         display: flex;
         justify-content: flex-end;
         gap: 0.5rem;
         padding: 1rem 0 0.5rem;
+
+        @include tabletWideAndDown {
+            padding: 0;
+        }
     }
 
     .button {
@@ -43,7 +76,7 @@
 
         &--primary {
             background: white;
-            color: #93A70A;
+            color: #93a70a;
 
             &:hover {
                 background: $greylightest;
