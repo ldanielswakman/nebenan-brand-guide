@@ -103,6 +103,9 @@ body {
             }
         }
     }
+    ul li p {
+        margin: 0.25rem 0;
+    }
     blockquote p {
         font-size: 2rem;
         color: $primary;
@@ -242,6 +245,18 @@ figure {
         float: left;
         width: 33%;
         margin-right: 2rem;
+    }
+}
+
+.figure--float-right {
+    @include tabletAndUp {
+        float: right;
+        width: 33%;
+        margin-left: 2rem;
+
+        &.figure--half {
+            width: calc(50% - 2rem);
+        }
     }
 }
 .figure--third {

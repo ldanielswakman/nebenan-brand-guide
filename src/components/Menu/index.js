@@ -33,6 +33,7 @@ const Menu = (props) => {
                         <li key={'understanding' + chapter.id}><Link activeClassName="is-active" to={'/' + chapter.node_locale + '/' + chapter.section + '/' + chapter.slug}>{chapter.title}</Link></li>
                     ))}
                 </ul>
+                <div onClick={() => setActive('')} className="toc__mask" />
             </div>
             <div className={`toc__section ${active === 'using' ? 'isActive' : ''}`}>
                 <div onClick={() => active === 'using' ? setActive('') : setActive('using')} className="toc__header">
@@ -51,6 +52,7 @@ const Menu = (props) => {
                         <li key={'using' + chapter.id}><Link activeClassName="is-active" to={'/' + chapter.node_locale + '/' + chapter.section + '/' + chapter.slug}>{chapter.title}</Link></li>
                     ))}
                 </ul>
+                <div onClick={() => setActive('')} className="toc__mask" />
             </div>
         </section>
     )
