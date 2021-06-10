@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
@@ -46,7 +47,7 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `xs6a8f4kp09q`,
-        accessToken: `ZCUXTOEhheivs-pBnxQCoB647aLerSlzUQLP7CKv7Tw`,
+        accessToken: process.env.CONTENTFUL_TOKEN,
       }
     },
     {
