@@ -2,7 +2,7 @@ import React from "react"
 import "./style.scss"
 import { injectIntl, Link, FormattedMessage } from "gatsby-plugin-intl"
 
-export default function NextButton(props) {
+const NextButton = (props) => {
 
     const target = {
         link: "/",
@@ -21,3 +21,5 @@ export default function NextButton(props) {
         </Link>
     )
 }
+
+export default injectIntl(NextButton)
