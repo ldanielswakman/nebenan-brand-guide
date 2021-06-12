@@ -4,7 +4,7 @@ import "./style.scss"
 export default function InstallPrompt(props) {
 
     const [active, setActive] = useState(true);
-    const [deferredPrompt, setDeferredPrompt] = useState(null);
+    var [deferredPrompt, setDeferredPrompt] = useState(null);
 
     React.useEffect(() => {
         window.addEventListener('beforeinstallprompt', (e) => {

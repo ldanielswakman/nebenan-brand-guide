@@ -11,7 +11,6 @@ export default function NextButton(props) {
     if (props.node !== undefined) {
         target.link = '/' + props.node.section + '/' + props.node.slug;
         target.title = props.node.title;
-        console.log(props.node);
     }
 
     return (
