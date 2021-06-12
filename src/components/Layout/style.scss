@@ -1,4 +1,4 @@
-@import '../../styles/base.scss';
+@import "../../styles/base.scss";
 
 .layout {
     display: flex;
@@ -27,8 +27,12 @@
         box-shadow: 0 0 50px rgba($black, 0.3);
         text-align: center;
 
-        @include tabletAndUp { flex-basis: 60%; }
-        @include tabletWideAndUp { flex-basis: 50%; }
+        @include tabletAndUp {
+            flex-basis: 60%;
+        }
+        @include tabletWideAndUp {
+            flex-basis: 50%;
+        }
     }
     &--home-cover {
         min-height: 60vw;
@@ -36,53 +40,100 @@
         background-position: center;
         background-repeat: no-repeat;
 
-        @include tabletAndUp { min-height: auto; flex-basis: 40%; order: 2; }
-        @include tabletWideAndUp { flex-basis: 50%; }
+        @include tabletAndUp {
+            min-height: auto;
+            flex-basis: 40%;
+            order: 2;
+        }
+        @include tabletWideAndUp {
+            flex-basis: 50%;
+        }
+    }
+
+    @include tabletWideAndUp {
+        &--nav {
+            max-height: 100vh;
+            overflow: auto;
+            position: sticky;
+            top: 0;
+        }
     }
 
     // Page panels
-    &--nav { flex-basis: 0; }
+    &--nav {
+        flex-basis: 0;
+    }
     &--full,
     &--left,
-    &--right { flex-basis: 100%; }
+    &--right {
+        flex-basis: 100%;
+    }
 
     @include tabletAndUp {
-        &--left { flex-basis: 60%; }
-        &--right { flex-basis: 40%; }
+        &--left {
+            flex-basis: 60%;
+        }
+        &--right {
+            flex-basis: 40%;
+        }
     }
     @include tabletWideAndUp {
-        &--nav { flex-basis: 25%; }
-        &--full { flex-basis: 75%; }
-        &--left { flex-basis: 50%; }
-        &--right { flex-basis: 25%; }
+        &--nav {
+            flex-basis: 25%;
+        }
+        &--full {
+            flex-basis: 75%;
+        }
+        &--left {
+            flex-basis: 50%;
+        }
+        &--right {
+            flex-basis: 25%;
+        }
     }
     @include desktopAndUp {
-        &--nav { flex-basis: 20%; }
-        &--full { flex-basis: 80%; }
-        &--left { flex-basis: 45%; }
-        &--right { flex-basis: 35%; }
+        &--nav {
+            flex-basis: 20%;
+        }
+        &--full {
+            flex-basis: 80%;
+        }
+        &--left {
+            flex-basis: 45%;
+        }
+        &--right {
+            flex-basis: 35%;
+        }
     }
-    
+
     // Panel styling
-    &--full, &--left {
+    &--full,
+    &--left {
         z-index: 2;
         background-color: var(--bg-colour);
         box-shadow: 0 0 50px rgba($black, 0.1);
         padding: 1.5rem;
 
         @include tabletAndUp {
-            padding: 2rem 4rem;    
+            padding: 2rem 4rem;
         }
         @include darkMode {
             box-shadow: 0 0 50px rgba($black, 0.2);
         }
     }
-    &--right { 
-        @include tabletAndUp { min-height: auto; order: 2; }
+    &--right {
+        @include tabletAndUp {
+            min-height: auto;
+            order: 2;
+        }
     }
 
     // Panel loading animation
-    &--home-main, &--home-cover, &--full, &--left, &--right {
+    &--home-main,
+    &--home-cover,
+    &--full,
+    &--left,
+    &--right {
         position: relative;
         transform: translateY(3rem);
         transition: all 0.3s cubic-bezier(1, 0, 0, 1);
@@ -104,7 +155,8 @@
             }
         }
     }
-    &--right, &--home-cover {
+    &--right,
+    &--home-cover {
         transition-delay: 0.3s;
     }
 }

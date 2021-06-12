@@ -1,42 +1,34 @@
-@import '../../styles/base.scss';
+@import "../../styles/base.scss";
 
 .lang-switcher {
-    input {
+    position: relative;
+    display: flex;
+    background: var(--subtle-colour);
+    border-radius: 2.5rem;
+    user-select: none;
+
+    &:before {
+        content: "";
         position: absolute;
-        left: -9999px;
-        width: 0;
-        height: 0;
-    }
+        left: 0.125rem;
+        top: 0.125rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        background: var(--bg-colour);
+        border-radius: 1.125rem;
+        box-shadow: 0 0.125rem 0.5rem rgba($black, 0.1);
+        transition: all 0.2s cubic-bezier(1, 0, 0, 1);
 
-    label {
-        position: relative;
-        display: flex;
-        background: var(--subtle-colour);
-        border-radius: 2.5rem;
-        cursor: pointer;
-
-        &:before {
-            content: "";
-            position: absolute;
-            left: 0.125rem;
-            top: 0.125rem;
-            width: 2.25rem;
-            height: 2.25rem;
-            background: var(--bg-colour);
-            border-radius: 1.125rem;
-            box-shadow: 0 0.125rem 0.5rem rgba($black, 0.1);
-            transition: all 0.2s cubic-bezier(1, 0, 0, 1);
-
-            @include darkMode {
-                background: var(--headline-colour);
-            }
-        }
-        &:hover:before {
-            box-shadow: 0 0.25rem 0.5rem rgba($black, 0.15);
+        @include darkMode {
+            background: var(--headline-colour);
         }
     }
-    input:checked ~ label {
-        &:before { left: 2.625rem; }
+    &:hover:before {
+        box-shadow: 0 0.25rem 0.5rem rgba($black, 0.15);
+    }
+
+    &[data-active="de"]:before {
+        left: 2.625rem;
     }
 
     &__item {
@@ -48,22 +40,36 @@
         width: 2.25rem;
         height: 2.25rem;
         margin: 0.125rem;
+        font: inherit;
         font-weight: bold;
         color: var(--headline-colour);
         transition: color 0.2s cubic-bezier(1, 0, 0, 1);
+        cursor: default;
+        appearance: none;
+        border: none;
+        background: none;
 
         @include darkMode {
             color: var(--subtle-colour);
         }
 
-        &:last-child { color: var(--headline-colour); opacity: 0.5; }
+        &:last-child {
+            color: var(--headline-colour);
+            opacity: 0.5;
+            cursor: pointer;
+        }
     }
-    input:checked ~ label {
+    &[data-active="de"] {
         .lang-switcher__item {
-            &:first-child {color: var(--text-colour); opacity: 0.5;}
+            &:first-child {
+                color: var(--text-colour);
+                opacity: 0.5;
+                cursor: pointer;
+            }
             &:last-child {
                 color: var(--headline-colour);
                 opacity: 1;
+                cursor: default;
 
                 @include darkMode {
                     color: var(--subtle-colour);

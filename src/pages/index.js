@@ -1,12 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
 import Layout from "../components/Layout"
 import Menu from "../components/Menu"
 import LangSwitcher from "../components/LangSwitcher"
 
-export default function Home({data}) {
+const IndexPage = ({ data }) => {
 
   const meta = {
     title: data.site.siteMetadata.title,
@@ -14,6 +15,8 @@ export default function Home({data}) {
     description: data.site.siteMetadata.description,
     image: '/images/meta-image.jpg'
   };
+
+  const chapters = data.allContentfulChapter.nodes
 
   return (
     <Layout page="home">
@@ -26,7 +29,7 @@ export default function Home({data}) {
         <meta name="description" content={meta.description} />
         <meta name="keywords" content="" />
         <meta name="author" content="L Daniel Swakman, https://sincere.studio" />
-        
+
         <meta property="og:image" content={meta.image} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:site_name" content={meta.title} />
@@ -48,14 +51,14 @@ export default function Home({data}) {
         <section className="intro-group">
 
           <img src="/images/nebenan-monogram.svg" alt="Brand Guide" />
-          <h1 className="heading1">{data.site.siteMetadata.short_name}</h1>
-          <blockquote><p>{data.site.siteMetadata.description}</p></blockquote>
+          <h1 className="heading1"><FormattedMessage id="short_name" /></h1>
+          <blockquote><p><FormattedMessage id="description" /></p></blockquote>
 
           <LangSwitcher />
 
         </section>
 
-        <Menu home={true} />
+        <Menu chapters={chapters} home={true} />
 
       </main>
     </Layout>
@@ -63,7 +66,7 @@ export default function Home({data}) {
 }
 
 export const query = graphql`
-  query HomePageQuery {
+  query HomePageQuery($locale: String) {
     site {
       siteMetadata {
         title
@@ -72,16 +75,18 @@ export const query = graphql`
         siteUrl
       }
     }
-    allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            slug
-            title
-            section
-          }
-        }
+    allContentfulChapter(
+      filter: {node_locale: { eq: $locale } }
+      sort: { order: ASC, fields: [date] }
+    ) {
+      nodes {
+        title
+        slug
+        node_locale
+        section
+        id
       }
     } 
   }
 `
+export default injectIntl(IndexPage)

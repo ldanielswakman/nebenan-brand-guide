@@ -1,14 +1,33 @@
-import React from "react"
+import React, { useState } from "react"
+import { injectIntl, IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
+
 import "./style.scss"
 
-export default function LangSwitcher(props) {
+const LangSwitcher = ({ intl }) => {
+
+    const [selected, setSelected] = useState(intl.locale);
+
     return (
-        <div className="lang-switcher">
-            <input type="checkbox" id="lang-switcher" />
-            <label htmlFor="lang-switcher">
-                <div className="lang-switcher__item">EN</div>
-                <div className="lang-switcher__item">DE</div>
-            </label>                    
+        <div className="lang-switcher" data-active={selected}>
+            <IntlContextConsumer>
+                {({ languages, language: currentLocale }) =>
+                    languages.map(language => (
+                        <>
+                            {(language === currentLocale) ? (
+                                <div key={language} className="lang-switcher__item current">
+                                    {language.toUpperCase()}
+                                </div>
+                            ) : (
+                                <button onClick={() => { setSelected(language); changeLocale(language) }} key={language} className="lang-switcher__item">
+                                    {language.toUpperCase()}
+                                </button>
+                            )}
+                        </>
+                    ))
+                }
+            </IntlContextConsumer>
         </div>
     )
 }
+
+export default injectIntl(LangSwitcher)

@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
@@ -42,5 +43,34 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `xs6a8f4kp09q`,
+        accessToken: process.env.CONTENTFUL_TOKEN,
+      }
+    },
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/locales`,
+        languages: [`en`, `de`],
+        defaultLanguage: `en`,
+        redirect: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Nebenan Brand Guide`,
+        short_name: `Brand Guide`,
+        start_url: `/`,
+        background_color: `#b2ca06`,
+        theme_color: `#ffffff`,
+        display: `standalone`,
+        icon: `static/images/app-icon.png`
+      },
+    },
+    `gatsby-plugin-offline`
   ],
 }

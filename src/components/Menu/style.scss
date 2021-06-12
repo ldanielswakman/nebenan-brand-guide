@@ -1,4 +1,4 @@
-@import '../../styles/base.scss';
+@import "../../styles/base.scss";
 
 .toc {
     display: flex;
@@ -11,14 +11,16 @@
     &.toc--home {
         flex-direction: row;
     }
-    
+
     &__section {
         flex: 1;
         padding-bottom: 2rem;
         border-top: 1px solid var(--subtle-colour);
 
-        & + .toc__section {
-            border-left: 1px solid var(--subtle-colour);
+        @include tabletWideAndDown {
+            & + .toc__section {
+                border-left: 1px solid var(--subtle-colour);
+            }
         }
     }
 
@@ -48,7 +50,9 @@
         align-items: center;
         flex-basis: 3rem;
 
-        svg path { fill: rgba(0, 0, 0, 0.3); }
+        svg path {
+            fill: rgba(0, 0, 0, 0.3);
+        }
     }
 
     &__title {
