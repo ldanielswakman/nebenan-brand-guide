@@ -8,5 +8,9 @@
     "section_2_title": "Die Marke verwenden",
     "click_to_copy": "Zum kopieren klicken",
     "copied": "In die Zwischenablage kopiert!",
-    "next": "NÄCHSTE"
+    "next": "NÄCHSTE",
+    "install_prompt_title": "Nehme diese Leitfaden mit!",
+    "install_prompt_text": "Installiere auf deinem Gerät für einfachen Zugriff, auch offline.",
+    "not_now": "Not now",
+    "install": "Install"
 }

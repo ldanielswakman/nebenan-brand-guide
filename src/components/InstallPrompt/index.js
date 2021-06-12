@@ -1,7 +1,8 @@
 import React, { useState } from "react"
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 import "./style.scss"
 
-export default function InstallPrompt(props) {
+const InstallPrompt = (props) => {
 
     const [active, setActive] = useState(true);
     var [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -44,15 +45,20 @@ export default function InstallPrompt(props) {
         <div className={`install-prompt ${active && 'isActive'}`}>
 
             <div className="content">
-                <h4>Take this guide with you!</h4>
-                <p>Install on your device for easy access</p>
+                <h4><FormattedMessage id="install_prompt_title" /></h4>
+                <p><FormattedMessage id="install_prompt_text" /></p>
             </div>
 
             <div className="actions">
-                <button onClick={() => setActive(false)} className="button button--reveal">Not now</button>
-                <button onClick={handleInstall} className="button button--primary">Install</button>
+                <button onClick={() => setActive(false)} className="button button--reveal">
+                    <span className="text"><FormattedMessage id="not_now" /></span>
+                    <span className="icon">&times;</span>
+                </button>
+                <button aria-label="Install" onClick={handleInstall} className="button button--primary"><FormattedMessage id="install" /></button>
             </div>
 
         </div>
     )
 }
+
+export default injectIntl(InstallPrompt)

@@ -44,6 +44,11 @@ $base: $grey-120;
         @content;
     }
 }
+@mixin tabletAndDown {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
 
 // Mixin: Dark mode
 @mixin darkMode {

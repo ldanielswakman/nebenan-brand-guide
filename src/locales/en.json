@@ -8,5 +8,9 @@
     "section_2_title": "Using the Brand",
     "click_to_copy": "Click to copy",
     "copied": "Copied to clipboard!",
-    "next": "NEXT"
+    "next": "NEXT",
+    "install_prompt_title": "Take this guide with you!",
+    "install_prompt_text": "Install on your device for easy access, even offline.",
+    "not_now": "Not now",
+    "install": "Install"
 }

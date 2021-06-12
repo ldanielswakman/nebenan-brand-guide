@@ -1,6 +1,6 @@
 import React from "react"
 import "./style.scss"
-import { injectIntl, Link, FormattedMessage } from "gatsby-plugin-intl"
+import { Link, FormattedMessage } from "gatsby-plugin-intl"
 
 export default function NextButton(props) {
 
