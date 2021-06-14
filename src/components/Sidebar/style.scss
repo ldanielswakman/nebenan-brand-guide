@@ -53,6 +53,7 @@
                     opacity: 0;
                     backdrop-filter: blur(0);
                     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+                    pointer-events: none;
                 }
 
                 &.isActive {
@@ -80,6 +81,7 @@
                     .toc__mask {
                         opacity: 1;
                         backdrop-filter: blur(5px);
+                        pointer-events: all;
                     }
                 }
                 &:last-child .toc__content,

@@ -211,7 +211,7 @@ figure {
 }
 
 .figure--bg {
-    position: sticky;
+    position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
@@ -223,6 +223,10 @@ figure {
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
+
+    @include tabletAndUp {
+        position: sticky;
+    }
 
     img {
         display: none;
