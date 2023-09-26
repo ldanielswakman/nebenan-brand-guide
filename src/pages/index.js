@@ -52,20 +52,15 @@ export const Head = () => {
     return <Meta {...meta} />
 }
 
-export const query = graphql`
-  query HomePageQuery($locale: String) {
-    allContentfulChapter(
-      filter: {node_locale: { eq: $locale } }
-      sort: { order: ASC, fields: [date] }
-    ) {
-      nodes {
-        title
-        slug
-        node_locale
-        section
-        id
-      }
-    } 
+export const query = graphql`query HomePageQuery($locale: String) {
+  allContentfulChapter(filter: {node_locale: {eq: $locale}}, sort: {date: ASC}) {
+    nodes {
+      title
+      slug
+      node_locale
+      section
+      id
+    }
   }
-`
+}`
 export default injectIntl(IndexPage)

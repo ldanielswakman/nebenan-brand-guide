@@ -88,12 +88,11 @@ export const Head = ({ data, location, pageContext }) => {
   return <Meta {...meta} />
 }
 
-export const pageQuery = graphql`
-  query pageQuery($slug: String, $locale: String) {
-    contentfulChapter(slug: { eq: $slug }) {
-      id
-      slug
-      title
+export const pageQuery = graphql`query pageQuery($slug: String, $locale: String) {
+  contentfulChapter(slug: {eq: $slug}) {
+    id
+    slug
+    title
       node_locale
       section
       layout
@@ -123,21 +122,17 @@ export const pageQuery = graphql`
             name
             colour
           }
-        }
-      }
-    }
-    allContentfulChapter(
-      sort: { order: ASC, fields: [date] }
-      filter: {node_locale: { eq: $locale } }
-    ) {
-      nodes {
-        title
-        slug
-        node_locale
-        section
-        id
       }
     }
   }
-`
+  allContentfulChapter(sort: {date: ASC}, filter: {node_locale: {eq: $locale}}) {
+    nodes {
+      title
+      slug
+      node_locale
+      section
+      id
+    }
+  }
+}`
 export default injectIntl(Template)

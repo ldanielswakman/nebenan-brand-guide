@@ -15,23 +15,18 @@ exports.onCreatePage = ({ page, actions }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const pageTemplate = require.resolve(`./src/templates/pageTemplate.js`)
-  const result = await graphql(`
-    {
-      allContentfulChapter(
-        sort: { order: ASC, fields: [date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            slug
-            node_locale
-            section
-            title
-          }
-        }
+  const result = await graphql(`{
+  allContentfulChapter(sort: {date: ASC}, limit: 1000) {
+    edges {
+      node {
+        slug
+        node_locale
+        section
+        title
       }
     }
-  `)
+  }
+}`)
   // Handle errors
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
