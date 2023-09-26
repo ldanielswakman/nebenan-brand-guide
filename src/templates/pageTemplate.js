@@ -93,35 +93,32 @@ export const pageQuery = graphql`query pageQuery($slug: String, $locale: String)
     id
     slug
     title
-      node_locale
-      section
-      layout
-      coverImage {
-        id
-        file {
-          url
-        }
+    node_locale
+    section
+    layout
+    coverImage {
+      id
+      file {
+        url
       }
-      content {
-        raw
-        references {
-          ... on ContentfulAsset {
-            contentful_id
-            __typename
-            title
-            description
-            file {
-              url
-            }
-            fixed(width: 1600) {
-              src
-            }
+    }
+    content {
+      raw
+      references {
+        ... on ContentfulAsset {
+          contentful_id
+          __typename
+          title
+          description
+          file {
+            url
           }
-          ... on ContentfulColourSwatch {
-            contentful_id
-            name
-            colour
-          }
+        }
+        ... on ContentfulColourSwatch {
+          contentful_id
+          name
+          colour
+        }
       }
     }
   }
