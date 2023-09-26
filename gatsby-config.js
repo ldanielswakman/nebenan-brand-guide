@@ -58,6 +58,7 @@ module.exports = {
         redirect: false,
       },
     },
+    'gatsby-plugin-image',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
