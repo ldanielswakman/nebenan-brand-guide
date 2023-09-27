@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { Helmet } from "react-helmet"
 
 import Layout from "../components/Layout"
 import Sidebar from "../components/Sidebar"
@@ -21,11 +20,8 @@ export default function NotFound({data}) {
   return (
     <Layout page="404">
 
-      <Helmet>
-      </Helmet>
-
       <Sidebar chapters={chapters} />
-            
+
       <main className="panel panel--full">
 
         <Link to="/" className="heading-logo">
@@ -36,9 +32,9 @@ export default function NotFound({data}) {
         <br />
         <h1 className="heading2" style={{marginBottom: "1rem"}}>{randomMessage}</h1>
         <h2 className="heading3">The page you are looking for could not be found.</h2>
-        
+
         <p style={{maxWidth: "40rem"}}>Maybe it's us, maybe it's you... happens to everyone from time to time. But we can fix this! Turn to the navigation menu to select your topic, or simply return home:</p>
-        
+
         <br /><br />
 
         <NextButton />

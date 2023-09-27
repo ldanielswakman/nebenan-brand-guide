@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
-import { Helmet } from "react-helmet"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
@@ -9,19 +8,16 @@ import Layout from "../components/Layout"
 import Sidebar from "../components/Sidebar"
 import NextButton from "../components/NextButton"
 import ColourSwatch from "../components/ColourSwatch"
+import {useSiteMetadata} from "../hooks/use-site-metadata";
+import {Meta} from "../components/Meta/index";
 
 const Template = ({ data, location, pageContext }) => {
 
-  const { allContentfulChapter, contentfulChapter, site } = data
+  const { allContentfulChapter, contentfulChapter } = data
   const chapters = allContentfulChapter.nodes
   const page = contentfulChapter
-  const pageUrl = site.siteMetadata.siteUrl + location.pathname
-  const meta = {
-    title: (page.title + " - " + site.siteMetadata.title),
-    link: pageUrl,
-    description: site.siteMetadata.description,
-    image: page.coverImage ? (page.coverImage.file.url) : ('/images/meta-image.jpg')
-  };
+
+  const siteMetadata = useSiteMetadata();
 
   const options = {
     renderNode: {
@@ -44,28 +40,6 @@ const Template = ({ data, location, pageContext }) => {
 
   return (
     <Layout page={page.slug}>
-
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{meta.title}</title>
-        <link rel="canonical" href={meta.link} />
-        <link id="favicon" rel="shortcut icon" href="/images/app-icon.png" />
-        <meta name="description" content={meta.description} />
-        <meta name="keywords" content="" />
-        <meta name="author" content="L Daniel Swakman, https://sincere.studio" />
-
-        <meta property="og:image" content={meta.image} />
-        <meta property="og:title" content={meta.title} />
-        <meta property="og:site_name" content={meta.title} />
-        <meta property="og:description" content={meta.description} />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@ldanielswakman" />
-        <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content={meta.image} />
-      </Helmet>
-
       <Sidebar chapters={chapters} />
 
       {page.layout === 'split' && (
@@ -78,7 +52,7 @@ const Template = ({ data, location, pageContext }) => {
 
         <Link to="/" className="heading-logo">
           <img src="/images/nebenan-monogram.svg" alt="" />
-          <h2>{site.siteMetadata.short_name}</h2>
+          <h2>{siteMetadata.short_name}</h2>
         </Link>
 
 
@@ -99,64 +73,63 @@ const Template = ({ data, location, pageContext }) => {
   )
 }
 
-export const pageQuery = graphql`
-  query pageQuery($slug: String, $locale: String) {
-    site {
-      siteMetadata {
-        title
-        short_name
-        description
-        siteUrl
-      }
-    }
-    contentfulChapter(slug: { eq: $slug }) {
+export const Head = ({ data, location, pageContext }) => {
+  const { contentfulChapter } = data
+  const page = contentfulChapter
+  const siteMetadata = useSiteMetadata();
+  const pageUrl = siteMetadata.siteUrl + location.pathname
+
+  const meta = {
+    ...siteMetadata,
+    title: (page.title + " - " + siteMetadata.title),
+    link: pageUrl,
+    image: page.coverImage ? (page.coverImage.file.url) : ('/images/meta-image.jpg')
+  };
+  return <Meta {...meta} />
+}
+
+export const pageQuery = graphql`query pageQuery($slug: String, $locale: String) {
+  contentfulChapter(slug: {eq: $slug}) {
+    id
+    slug
+    title
+    node_locale
+    section
+    layout
+    coverImage {
       id
-      slug
-      title
-      node_locale
-      section
-      layout
-      coverImage {
-        id
-        file {
-          url
-        }
-      }
-      content {
-        raw
-        references {
-          ... on ContentfulAsset {
-            contentful_id
-            __typename
-            title
-            description
-            file {
-              url
-            }
-            fixed(width: 1600) {
-              src
-            }
-          }
-          ... on ContentfulColourSwatch {
-            contentful_id
-            name
-            colour
-          }
-        }
+      file {
+        url
       }
     }
-    allContentfulChapter(
-      sort: { order: ASC, fields: [date] }
-      filter: {node_locale: { eq: $locale } }
-    ) {
-      nodes {
-        title
-        slug
-        node_locale
-        section
-        id
+    content {
+      raw
+      references {
+        ... on ContentfulAsset {
+          contentful_id
+          __typename
+          title
+          description
+          file {
+            url
+          }
+        }
+        ... on ContentfulColourSwatch {
+          contentful_id
+          name
+          colour
+        }
       }
     }
   }
-`
+  allContentfulChapter(sort: {date: ASC}, filter: {node_locale: {eq: $locale}}) {
+    nodes {
+      title
+      slug
+      node_locale
+      section
+      id
+    }
+  }
+}`
 export default injectIntl(Template)
