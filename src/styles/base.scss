@@ -1,3 +1,45 @@
+// Mixin: Responsive
+@mixin tabletAndUp {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+    }
+    @mixin tabletWideAndUp {
+        @media screen and (min-width: 1024px) {
+            @content;
+        }
+    }
+    @mixin desktopAndUp {
+        @media screen and (min-width: 1200px) {
+            @content;
+        }
+    }
+    @mixin tabletWideAndDown {
+        @media screen and (max-width: 1023px) {
+            @content;
+        }
+    }
+    @mixin tabletAndDown {
+        @media screen and (max-width: 767px) {
+            @content;
+        }
+    }
+    
+    // Mixin: Dark mode
+    @mixin darkMode {
+        @media (prefers-color-scheme: dark) {
+        @content;
+    
+        html.prefersDarkMode:not(.prefersLightMode) & {
+            @content;
+        }
+        }
+        html.prefersDarkMode & {
+        @content;
+        }
+    }
+
+
 // Colours
 $white: #FFFFFF;
 $greylightest: #F7F9E6;
@@ -8,58 +50,46 @@ $greydark: #757575;
 $grey-120: #393939;
 $black: #000000;
 
-$dark-1: #3D403F;
-$dark-2: #303332;
+$dark-1: #15141A;
+$dark-2: #2A2933;
 $dark-3: #242625;
 
-$knallgreen-100: #B2CA06;
+// Primitives
+$deep-purple-100: #201649;
+$deep-purple-70: #635C80;
+$deep-purple-5: #F4F3F6;
+
+$knallgreen-100: #b5d622;
+$knallgreen-70: #cae85d;
 $planschblau-100: #0090A1;
 $balkonmus-100: #799189;
 
+// Semantic: Light mode
 $primary: $knallgreen-100;
-$base: $grey-120;
+$primary-light: $knallgreen-70;
+$base: $deep-purple-100;
+$light-surface: $white;
+$light-surfaceDim: $deep-purple-5;
+$light-onSurface: $deep-purple-100;
+$light-onSurfaceVariant: $deep-purple-70;
 
-
-
-
-
-// Mixin: Responsive
-@mixin tabletAndUp {
-  @media screen and (min-width: 768px) {
-      @content;
-  }
-}
-@mixin tabletWideAndUp {
-    @media screen and (min-width: 1024px) {
-        @content;
+// Semantic: Applied
+:root {
+    --bg-colour: #{$light-surface};
+    --bg-back-colour: #{$light-surfaceDim};
+    --subtle-colour: #{$greylighter};
+    --headline-colour: #{$light-onSurface};
+    --text-colour: #{$light-onSurfaceVariant};
+    --primary: #{$knallgreen-100};
+    --primary-alt: #{$knallgreen-70};
+    
+    @include darkMode {
+        --bg-colour: #{$dark-1};
+        --bg-back-colour: #{$dark-2};
+        --subtle-colour: #{lighten($dark-1, 10%)};
+        --headline-colour: #{$white};
+        --text-colour: #{$greylighter};
+        --primary: #{$knallgreen-70};
+        --primary-alt: #{$knallgreen-100};
     }
 }
-@mixin desktopAndUp {
-    @media screen and (min-width: 1200px) {
-        @content;
-    }
-}
-@mixin tabletWideAndDown {
-    @media screen and (max-width: 1023px) {
-        @content;
-    }
-}
-@mixin tabletAndDown {
-    @media screen and (max-width: 767px) {
-        @content;
-    }
-}
-
-// Mixin: Dark mode
-@mixin darkMode {
-    @media (prefers-color-scheme: dark) {
-      @content;
-  
-      html.prefersDarkMode:not(.prefersLightMode) & {
-        @content;
-      }
-    }
-    html.prefersDarkMode & {
-      @content;
-    }
-  }

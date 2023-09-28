@@ -1,21 +1,5 @@
 @import "./base.scss";
 
-:root {
-    --bg-colour: #{$white};
-    --bg-back-colour: #{$greylightest};
-    --subtle-colour: #{$greylighter};
-    --headline-colour: #{$base};
-    --text-colour: #{$greydark};
-
-    @include darkMode {
-        --bg-colour: #{$dark-1};
-        --bg-back-colour: #{$dark-2};
-        --subtle-colour: #{lighten($dark-1, 10%)};
-        --headline-colour: #{$white};
-        --text-colour: #{$greylighter};
-    }
-}
-
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -27,13 +11,15 @@ body {
     padding: 0;
     background: var(--bg-colour);
     color: var(--text-colour);
-    font-family: "Open Sans";
+    font-family: "Inter";
 
     font-size: 100%;
 
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "salt";
+    -webkit-font-feature-settings: "salt";
 }
 
 ::selection {
@@ -53,14 +39,9 @@ body {
     justify-content: center;
     align-items: center;
     padding: 3rem 0 3rem;
-    background-image: url("/images/small-skyline.svg");
     background-size: 140%;
     background-position: bottom left;
     background-repeat: no-repeat;
-
-    @include darkMode {
-        background-image: url("/images/small-skyline-dark.svg");
-    }
 }
 @include tabletAndUp {
     .intro-group {
@@ -108,6 +89,7 @@ body {
     }
     blockquote p {
         font-size: 2rem;
+        font-weight: 500;
         color: $primary;
     }
 }
@@ -133,7 +115,7 @@ h1 {
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 600;
-    color: var(--text-colour);
+    color: var(--headline-colour);
     letter-spacing: 1px;
     opacity: 0.5;
 
@@ -145,11 +127,13 @@ h1 {
     margin: 2rem 0 1rem;
     font-size: 1.5rem;
     font-weight: 600;
+    color: var(--headline-colour);
 }
 .heading5 {
     margin: 2rem 0 0.5rem;
     font-size: 1.25rem;
     font-weight: 600;
+    color: var(--headline-colour);
 }
 .heading5 + p {
     margin-top: 0;

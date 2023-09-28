@@ -26,9 +26,9 @@
     }
 
     .swatch {
-        width: 5rem;
-        height: 5rem;
-        border-radius: 2.5rem;
+        width: 4rem;
+        height: 8rem;
+        border-radius: 2rem;
         background: var(--subtle-colour);
     }
 
@@ -55,10 +55,12 @@
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         transform: translateY(1rem);
         opacity: 0;
+        pointer-events: none;
 
         &.is-active {
             transform: translateY(0);
             opacity: 1;
+            pointer-events: all;
         }
 
         span {

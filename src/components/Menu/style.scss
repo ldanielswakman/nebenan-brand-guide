@@ -74,23 +74,33 @@
     }
 
     &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
         margin: 0;
-        padding: 0;
+        padding: 0 2rem;
         list-style: none;
 
         a {
-            display: block;
-            padding: 0.5rem 1rem 0.5rem 3rem;
+            display: inline-block;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            border-radius: 2rem;
             color: var(--text-colour);
-            font-weight: regular;
+            font-weight: 500;
+            line-height: 1.25rem;
 
             &:hover {
-                background: var(--bg-back-colour);
+                background: var(--bg-colour);
                 color: var(--headline-colour);
             }
 
+            &:focus-visible {
+                outline: 2px solid var(--text-colour)
+            }
+
             &.is-active {
-                color: $primary;
+                background-color: var(--primary-alt);
+                color: var(--headline-colour);
                 font-weight: bold;
             }
 

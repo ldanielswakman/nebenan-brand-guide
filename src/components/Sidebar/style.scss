@@ -3,6 +3,7 @@
 .sidebar {
     position: sticky;
     top: 0;
+    background: var(--bg-back-colour);
 
     @include tabletWideAndDown {
         position: fixed;
@@ -13,11 +14,6 @@
         z-index: 10;
         min-height: auto;
         width: 100%;
-        background: #f8f8f6;
-
-        @include darkMode {
-            background: var(--bg-back-colour);
-        }
 
         .toc {
             flex-direction: row;
@@ -116,13 +112,13 @@
         }
 
         img {
-            width: 2rem;
-            margin-right: 1.25rem;
+            width: 3rem;
+            margin-right: 1rem;
         }
 
         a {
             display: flex;
-            color: inherit;
+            color: var(--headline-colour);
         }
         h2 {
             font-size: 1.25rem;
