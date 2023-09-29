@@ -61,19 +61,20 @@ $deep-purple-20: #D2D0DB;
 $deep-purple-5: #F4F3F6;
 
 $knallgreen-100: #b5d622;
-$knallgreen-70: #cae85d;
+$knallgreen-80: #cae85d;
+$knallpink-100: #EC7BCB;
+$knallpink-80: #FF9DE2;
 $planschblau-100: #0090A1;
 $balkonmus-100: #799189;
 
 // Semantic: Light mode
 $primary: $knallgreen-100;
-$primary-light: $knallgreen-70;
+$primary-light: $knallgreen-80;
 $base: $deep-purple-100;
 $light-surface: $white;
 $light-surfaceDim: $deep-purple-5;
 $light-onSurface: $deep-purple-100;
 $light-onSurfaceVariant: $deep-purple-70;
-$light-onSurfaceDisabledVariant: $deep-purple-20;
 
 // Semantic: Applied
 :root {
@@ -84,7 +85,9 @@ $light-onSurfaceDisabledVariant: $deep-purple-20;
     --text-colour: #{$light-onSurfaceVariant};
     --onSurfaceDisabledVariant: #{$deep-purple-20};
     --primary: #{$knallgreen-100};
-    --primary-alt: #{$knallgreen-70};
+    --primary-alt: #{$knallgreen-80};
+    --highlight: #{$knallpink-100};
+    --highlight-alt: #{$knallpink-80};
     
     @include darkMode {
         --bg-colour: #{$dark-1};
@@ -93,7 +96,9 @@ $light-onSurfaceDisabledVariant: $deep-purple-20;
         --headline-colour: #{$white};
         --text-colour: #{$greylighter}
         --onSurfaceDisabledVariant: #{$deep-purple-70};
-        --primary: #{$knallgreen-70};
+        --primary: #{$knallgreen-80};
         --primary-alt: #{$knallgreen-100};
+        --highlight: #{$knallpink-80};
+        --highlight-alt: #{$knallpink-100};
     }
 }

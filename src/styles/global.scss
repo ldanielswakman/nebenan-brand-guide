@@ -50,7 +50,7 @@ body {
 }
 .intro-group blockquote p {
     font-size: 1.25rem;
-    color: #bbb;
+    color: var(--highlight);
     font-weight: 500;
     width: calc(100% - 6rem);
     max-width: 40rem;

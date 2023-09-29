@@ -15,9 +15,9 @@ const IndexPage = ({ data }) => {
     <Layout page="home">
 
       <aside className="panel panel--home-cover">
-        <figure className="figure--bg" style={{ backgroundImage: "url('/images/home-bg.jpg')" }}>
+        {/* <figure className="figure--bg" style={{ backgroundImage: "url('/images/home-bg.jpg')" }}>
             <img src="/images/home-bg.jpg" alt="" />
-        </figure>
+        </figure> */}
       </aside>
 
       <main className="panel panel--home-main">
