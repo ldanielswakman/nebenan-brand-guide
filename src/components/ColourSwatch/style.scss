@@ -7,11 +7,11 @@
     min-width: 16rem;
     align-items: center;
     gap: 1rem;
-    border-radius: 0.5rem;
-    margin-left: -1rem;
-    margin-right: 1rem;
+    border-radius: 2.5rem;
+    margin-left: -0.5rem;
+    margin-right: 0.5rem;
     margin-top: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     cursor: pointer;
 
     @include tabletAndUp {
@@ -65,8 +65,8 @@
 
         span {
             display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
             background: var(--headline-colour);
             color: var(--bg-colour);
         }

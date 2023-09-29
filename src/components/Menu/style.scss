@@ -27,12 +27,6 @@
     &__header {
         display: flex;
         padding: 1.5rem 0 1.5rem;
-        color: $greymedium;
-
-        &:hover {
-            background: var(--bg-back-colour);
-            color: var(--headline-colour);
-        }
 
         &.is-active {
             color: $primary;
@@ -41,6 +35,10 @@
 
         .toc--home & {
             color: var(--headline-colour);
+        }
+
+        .toc__pretitle {
+            color: var(--onSurfaceDisabledVariant);
         }
     }
 
@@ -67,10 +65,8 @@
     }
 
     &__pretitle {
-        font-size: 0.875rem;
         font-weight: 600;
         letter-spacing: 1px;
-        opacity: 0.4;
     }
 
     &__content {

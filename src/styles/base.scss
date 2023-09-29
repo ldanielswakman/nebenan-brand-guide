@@ -57,6 +57,7 @@ $dark-3: #242625;
 // Primitives
 $deep-purple-100: #201649;
 $deep-purple-70: #635C80;
+$deep-purple-20: #D2D0DB;
 $deep-purple-5: #F4F3F6;
 
 $knallgreen-100: #b5d622;
@@ -72,6 +73,7 @@ $light-surface: $white;
 $light-surfaceDim: $deep-purple-5;
 $light-onSurface: $deep-purple-100;
 $light-onSurfaceVariant: $deep-purple-70;
+$light-onSurfaceDisabledVariant: $deep-purple-20;
 
 // Semantic: Applied
 :root {
@@ -80,6 +82,7 @@ $light-onSurfaceVariant: $deep-purple-70;
     --subtle-colour: #{$greylighter};
     --headline-colour: #{$light-onSurface};
     --text-colour: #{$light-onSurfaceVariant};
+    --onSurfaceDisabledVariant: #{$deep-purple-20};
     --primary: #{$knallgreen-100};
     --primary-alt: #{$knallgreen-70};
     
@@ -88,7 +91,8 @@ $light-onSurfaceVariant: $deep-purple-70;
         --bg-back-colour: #{$dark-2};
         --subtle-colour: #{lighten($dark-1, 10%)};
         --headline-colour: #{$white};
-        --text-colour: #{$greylighter};
+        --text-colour: #{$greylighter}
+        --onSurfaceDisabledVariant: #{$deep-purple-70};
         --primary: #{$knallgreen-70};
         --primary-alt: #{$knallgreen-100};
     }
