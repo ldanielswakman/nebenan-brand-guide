@@ -23,8 +23,8 @@ body {
 }
 
 ::selection {
-    background-color: $primary;
-    color: $white;
+    background-color: var(--highlight-alt);
+    color: var(--headline-colour);
 }
 -moz-::selection {
     background-color: $primary;
