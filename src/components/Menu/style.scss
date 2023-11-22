@@ -102,6 +102,11 @@
 
             .toc--home & {
                 color: var(--text-colour);
+
+                &:hover {
+                    font-weight: 600;
+                    color: var(--headline-colour);
+                }
             }
 
             &.is-disabled {
