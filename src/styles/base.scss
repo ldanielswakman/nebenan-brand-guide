@@ -3,45 +3,44 @@
     @media screen and (min-width: 768px) {
         @content;
     }
-    }
-    @mixin tabletWideAndUp {
-        @media screen and (min-width: 1024px) {
-            @content;
-        }
-    }
-    @mixin desktopAndUp {
-        @media screen and (min-width: 1200px) {
-            @content;
-        }
-    }
-    @mixin tabletWideAndDown {
-        @media screen and (max-width: 1023px) {
-            @content;
-        }
-    }
-    @mixin tabletAndDown {
-        @media screen and (max-width: 767px) {
-            @content;
-        }
-    }
-    
-    // Mixin: Dark mode
-    @mixin darkMode {
-        @media (prefers-color-scheme: dark) {
+}
+@mixin tabletWideAndUp {
+    @media screen and (min-width: 1024px) {
         @content;
-    
-        html.prefersDarkMode:not(.prefersLightMode) & {
-            @content;
-        }
-        }
-        html.prefersDarkMode & {
-        @content;
-        }
     }
+}
+@mixin desktopAndUp {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+@mixin tabletWideAndDown {
+    @media screen and (max-width: 1023px) {
+        @content;
+    }
+}
+@mixin tabletAndDown {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+// Mixin: Dark mode
+@mixin darkMode {
+    @media (prefers-color-scheme: dark) {
+    @content;
+
+    html.prefersDarkMode:not(.prefersLightMode) & {
+        @content;
+    }
+    }
+    html.prefersDarkMode & {
+    @content;
+    }
+}
 
 
 // Colours
-$white: #FFFFFF;
 $greylightest: #F7F9E6;
 $greylighter: #EDEDE9;
 $greylight: #BBBBBB;
@@ -57,8 +56,11 @@ $dark-3: #242625;
 // Primitives
 $deep-purple-100: #201649;
 $deep-purple-70: #635C80;
+$deep-purple-40: #A6A2B6;
 $deep-purple-20: #D2D0DB;
+$deep-purple-10: #E9E8ED;
 $deep-purple-5: #F4F3F6;
+$white: #FFFFFF;
 
 $knallgreen-100: #b5d622;
 $knallgreen-80: #cae85d;
@@ -80,7 +82,7 @@ $light-onSurfaceVariant: $deep-purple-70;
 :root {
     --bg-colour: #{$light-surface};
     --bg-back-colour: #{$light-surfaceDim};
-    --subtle-colour: #{$greylighter};
+    --subtle-colour: #{$deep-purple-10};
     --headline-colour: #{$light-onSurface};
     --text-colour: #{$light-onSurfaceVariant};
     --onSurfaceDisabledVariant: #{$deep-purple-20};
@@ -102,3 +104,8 @@ $light-onSurfaceVariant: $deep-purple-70;
         --highlight-alt: #{$knallpink-100};
     }
 }
+
+
+// Typography
+@import url('https://static.nebenan.de/fonts/byrd/byrd.css');
+@import url('https://static.nebenan.de/fonts/inter/Inter.css');
