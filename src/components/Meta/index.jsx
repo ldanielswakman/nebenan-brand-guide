@@ -7,7 +7,7 @@ export const Meta = ({ title, link, description, image }) => {
             <meta charSet="utf-8" />
             <title>{title}</title>
             <link rel="canonical" href={link} />
-            <link id="favicon" rel="shortcut icon" href="/images/app-icon.png" />
+            <link id="favicon" rel="shortcut icon" href="/icons/favicon-32x32.png" />
             <meta name="description" content={description} />
             <meta name="keywords" content="" />
             <meta name="author" content="L Daniel Swakman, https://sincere.studio" />
