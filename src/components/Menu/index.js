@@ -20,6 +20,13 @@ const Menu = (props) => {
         }
     }
 
+    const svgEyeCrossed = (
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.91667 2.91667L17.0833 17.0833M10 4.16667C5.45204 4.16667 2.37276 8.27898 1.50205 9.59802C1.33949 9.84427 1.33949 10.1557 1.50205 10.402C2.37276 11.721 5.45204 15.8333 10 15.8333C14.548 15.8333 17.6272 11.721 18.4979 10.402C18.6605 10.1557 18.6605 9.84427 18.4979 9.59802C17.6272 8.27898 14.548 4.16667 10 4.16667ZM10 6.66667C8.15905 6.66667 6.66667 8.15906 6.66667 10C6.66667 11.841 8.15905 13.3333 10 13.3333C11.8409 13.3333 13.3333 11.841 13.3333 10C13.3333 8.15906 11.8409 6.66667 10 6.66667Z" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+        </svg>
+    );
+
+
     return (
         <section className={`toc ${props.home ? 'toc--home' : ''}`}>
 
@@ -27,7 +34,7 @@ const Menu = (props) => {
                 <div role="button" tabIndex="-1" aria-label="Open Understanding Menu" onClick={() => handleToggle('understanding')} onKeyDown={() => handleToggle('understanding')} className="toc__header">
                     <div className="toc__icon">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 0C11.9778 0 13.9112 0.58649 15.5557 1.6853C17.2002 2.78412 18.4819 4.3459 19.2388 6.17317C19.9957 8.00043 20.1937 10.0111 19.8079 11.9509C19.422 13.8907 18.4696 15.6725 17.0711 17.0711C15.6725 18.4696 13.8907 19.422 11.9509 19.8079C10.0111 20.1937 8.00043 19.9957 6.17317 19.2388C4.3459 18.4819 2.78412 17.2002 1.6853 15.5557C0.58649 13.9112 0 11.9778 0 10C0 7.34784 1.05357 4.8043 2.92893 2.92893C4.8043 1.05357 7.34784 0 10 0V0ZM10.7146 1.45793L10.7143 2.85714H9.28571L9.28607 1.45786C7.26651 1.62698 5.37214 2.50605 3.93909 3.93909C2.50605 5.37214 1.62698 7.26651 1.45786 9.28607L2.85714 9.28571V10.7143L1.45793 10.7146C1.62718 12.7341 2.5063 14.6283 3.93932 16.0612C5.37235 17.4941 7.26662 18.3731 9.28607 18.5421L9.28571 17.1429H10.7143L10.7146 18.5421C12.734 18.3728 14.628 17.4938 16.0609 16.0609C17.4938 14.628 18.3728 12.734 18.5421 10.7146L17.1429 10.7143V9.28571L18.5421 9.28607C18.3731 7.26662 17.4941 5.37235 16.0612 3.93932C14.6283 2.5063 12.7341 1.62718 10.7146 1.45793V1.45793ZM15.5091 4.90886C15.5698 5.07055 15.5698 5.24874 15.5091 5.41043L12.6394 12.2214C12.6036 12.3169 12.5477 12.4036 12.4756 12.4757C12.4035 12.5478 12.3168 12.6036 12.2214 12.6394L5.41043 15.5091C5.28202 15.5573 5.14247 15.5674 5.00844 15.5384C4.87441 15.5094 4.75158 15.4424 4.65461 15.3454C4.55764 15.2484 4.49063 15.1256 4.4616 14.9916C4.43256 14.8575 4.44272 14.718 4.49086 14.5896L7.36064 7.77857C7.39645 7.6831 7.45227 7.5964 7.52437 7.5243C7.59647 7.4522 7.68317 7.39637 7.77864 7.36057L14.5896 4.49079C14.767 4.42428 14.9635 4.43097 15.1359 4.50937C15.3084 4.58778 15.4426 4.73148 15.5091 4.90886V4.90886ZM13.6198 6.38029L8.58407 8.58429L11.4156 11.4159L13.6198 6.38029Z" fill="#B2CA06" />
+                            <path d="M17.5 10.75C17.5 14.8921 14.1421 18.25 10 18.25M17.5 10.75C17.5 6.60786 14.1421 3.25 10 3.25M17.5 10.75H15.9375M10 18.25C5.85786 18.25 2.5 14.8921 2.5 10.75M10 18.25V16.6875M2.5 10.75C2.5 6.60786 5.85786 3.25 10 3.25M2.5 10.75H4.0625M10 3.25V4.8125M11.25 12L8.75 9.5M11.6601 12.0928L13.7325 7.42997C13.8487 7.16847 13.5815 6.90126 13.32 7.01749L8.65717 9.08987C8.51577 9.15271 8.40271 9.26577 8.33987 9.40717L6.26749 14.07C6.15126 14.3315 6.41847 14.5987 6.67997 14.4825L11.3428 12.4101C11.4842 12.3473 11.5973 12.2342 11.6601 12.0928Z" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
                         </svg>
                     </div>
                     <div className="toc__title">
@@ -37,7 +44,12 @@ const Menu = (props) => {
                 </div>
                 <ul className="toc__content">
                     {splitChapters.understanding.map(chapter => (
-                        <li key={'understanding' + chapter.id}><Link activeClassName="is-active" to={'/' + chapter.section + '/' + chapter.slug}>{chapter.title}</Link></li>
+                        <li key={'understanding' + chapter.id}>
+                            <Link activeClassName="is-active" to={'/' + chapter.section + '/' + chapter.slug}>
+                                {chapter.title}
+                                {(chapter.underConstruction === true) && svgEyeCrossed}
+                            </Link>
+                        </li>
                     ))}
                 </ul>
                 <div role="button" tabIndex="-1" aria-label="Close menu" onClick={() => setActive('')} onKeyDown={() => setActive('')} className="toc__mask" />
@@ -45,9 +57,9 @@ const Menu = (props) => {
             <div className={`toc__section ${active === 'using' ? 'isActive' : ''}`}>
             <div role="button" tabIndex="-1" aria-label="Open Using menu" onClick={() => handleToggle('using')} onKeyDown={() => handleToggle('using')} className="toc__header">
                     <div className="toc__icon">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M20 18.5714V20H0.714292V18.5714H20ZM20 15.7143V17.1428H7.85715V15.7143H20ZM13.9181 0.194336L16.9485 3.22476L4.32143 15.8517L0.281006 16.8618L1.29115 12.8214L13.9181 0.194336ZM11.3929 4.73998L2.58108 13.5516L2.24436 14.8985L3.59129 14.5618L12.4029 5.74998L11.3929 4.73998ZM20 12.8571V14.2857H12.1429V12.8571H20ZM13.9181 2.21462L12.4029 3.72984L13.413 4.73998L14.9286 3.22476L13.9181 2.21462Z" fill="#B2CA06" />
-                        </svg>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M27.5 27H4M14 23H27.5M27.5 19H20M21.1317 10.4038L23.253 8.2825C23.6436 7.89197 23.6436 7.25881 23.253 6.86828L21.1317 4.74696C20.7412 4.35644 20.108 4.35644 19.7175 4.74696L17.5962 6.86828M21.1317 10.4038L8.6066 22.9289C8.47408 23.0615 8.30697 23.1541 8.12435 23.1962C7.02178 23.4507 5.01673 23.8172 4.28067 23.9498C4.14393 23.9744 4.02561 23.8561 4.05023 23.7194C4.1827 22.9837 4.5489 20.9802 4.80378 19.8757C4.84593 19.693 4.93854 19.5259 5.07107 19.3934L17.5962 6.86828M21.1317 10.4038L17.5962 6.86828" stroke="#201649" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
                     </div>
                     <div className="toc__title">
                         <div className="toc__pretitle"><FormattedMessage id="section_2_pretitle" /></div>
@@ -56,7 +68,12 @@ const Menu = (props) => {
                 </div>
                 <ul className="toc__content">
                     {splitChapters.using.map(chapter => (
-                        <li key={'using' + chapter.id}><Link activeClassName="is-active" to={'/' + chapter.section + '/' + chapter.slug}>{chapter.title}</Link></li>
+                        <li key={'using' + chapter.id}>
+                            <Link activeClassName="is-active" to={'/' + chapter.section + '/' + chapter.slug}>
+                                {chapter.title}
+                                {(chapter.underConstruction === true) && svgEyeCrossed}
+                            </Link>
+                        </li>
                     ))}
                 </ul>
                 <div role="button" tabIndex="-1" aria-label="Close menu" onClick={() => setActive('')} onKeyDown={() => setActive('')} className="toc__mask" />

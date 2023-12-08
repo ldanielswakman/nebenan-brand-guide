@@ -20,8 +20,11 @@ const ColourSwatch = (props) => {
                 <div className="swatch" style={{ background: props.colour }}/>
                 <div className="text">
                     <h4>{props.name || 'Swatch'}</h4>
-                    <p>{props.colour}</p>
-                    <p className="subtle"><FormattedMessage id="click_to_copy" /></p>
+                    <p>{props.description}</p>
+                    <p>
+                        {props.colour}
+                        &nbsp;<span className="subtle">(<FormattedMessage id="click_to_copy" />)</span>
+                    </p>
                 </div>
                 <div className={copiedActive ? 'message is-active' : 'message'}>
                     <span><FormattedMessage id="copied" /></span>

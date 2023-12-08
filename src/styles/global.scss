@@ -1,21 +1,5 @@
 @import "./base.scss";
 
-:root {
-    --bg-colour: #{$white};
-    --bg-back-colour: #{$greylightest};
-    --subtle-colour: #{$greylighter};
-    --headline-colour: #{$base};
-    --text-colour: #{$greydark};
-
-    @include darkMode {
-        --bg-colour: #{$dark-1};
-        --bg-back-colour: #{$dark-2};
-        --subtle-colour: #{lighten($dark-1, 10%)};
-        --headline-colour: #{$white};
-        --text-colour: #{$greylighter};
-    }
-}
-
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -27,18 +11,20 @@ body {
     padding: 0;
     background: var(--bg-colour);
     color: var(--text-colour);
-    font-family: "Open Sans";
+    font-family: "Inter";
 
     font-size: 100%;
 
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "salt";
+    -webkit-font-feature-settings: "salt";
 }
 
 ::selection {
-    background-color: $primary;
-    color: $white;
+    background-color: var(--highlight-alt);
+    color: var(--headline-colour);
 }
 -moz-::selection {
     background-color: $primary;
@@ -53,14 +39,9 @@ body {
     justify-content: center;
     align-items: center;
     padding: 3rem 0 3rem;
-    background-image: url("/images/small-skyline.svg");
     background-size: 140%;
     background-position: bottom left;
     background-repeat: no-repeat;
-
-    @include darkMode {
-        background-image: url("/images/small-skyline-dark.svg");
-    }
 }
 @include tabletAndUp {
     .intro-group {
@@ -69,7 +50,7 @@ body {
 }
 .intro-group blockquote p {
     font-size: 1.25rem;
-    color: #bbb;
+    color: var(--highlight);
     font-weight: 500;
     width: calc(100% - 6rem);
     max-width: 40rem;
@@ -103,12 +84,26 @@ body {
             }
         }
     }
+    ul {
+        padding-left: 1.5rem;
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    }
     ul li p {
         margin: 0.25rem 0;
     }
     blockquote p {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 500;
         color: $primary;
+
+        @include tabletAndUp {
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
     }
 }
 
@@ -120,43 +115,51 @@ h1 {
 }
 .heading1 {
     margin: 1.5rem 0 1rem;
+    font-family: 'Byrd', 'Inter', sans-serif;
+    text-transform: uppercase;
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 900;
     color: var(--headline-colour);
 }
 .heading2 {
-    margin: 0 0 3rem;
+    margin: 0 0 1rem;
+    font-size: 2.5rem;
+    font-family: 'Byrd', 'Inter', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
     color: var(--headline-colour);
+
+    @include tabletAndUp {
+        margin-bottom: 3rem;
+    }
 }
 .heading3 {
-    margin: 1.75rem 0 0.25rem;
+    margin: 0.75rem 0 0.25rem;
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 600;
-    color: var(--text-colour);
+    color: var(--headline-colour);
     letter-spacing: 1px;
     opacity: 0.5;
-
-    @include tabletAndUp {
-        margin-bottom: 3.25rem;
-    }
 }
 .heading4 {
     margin: 2rem 0 1rem;
     font-size: 1.5rem;
     font-weight: 600;
+    color: var(--headline-colour);
 }
 .heading5 {
     margin: 2rem 0 0.5rem;
     font-size: 1.25rem;
     font-weight: 600;
+    color: var(--headline-colour);
 }
 .heading5 + p {
     margin-top: 0;
 }
 .heading-logo {
     display: flex;
-    margin: -1rem 0;
+    margin: 0;
     padding: 1rem 0;
     color: inherit;
 }
@@ -277,5 +280,21 @@ figure {
         display: inline-block;
         width: calc(50% - 2rem);
         margin-right: 2rem;
+    }
+}
+
+// Badge
+.badge-green {
+    display: inline-block;
+    margin: 2rem 0;
+    padding: 1rem;
+    border-radius: 4rem;
+    background: var(--primary-alt);
+
+    svg {
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        color: var(--headline-colour);
     }
 }
