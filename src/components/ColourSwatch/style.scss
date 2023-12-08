@@ -45,10 +45,6 @@
         font-size: 1.125rem;
         line-height: 1.375rem;
         color: var(--headline-colour);
-    @include tabletAndUp {
-        align-items: center;
-        width: 33%;
-    }
     }
 
     p {
