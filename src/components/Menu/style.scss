@@ -27,12 +27,6 @@
     &__header {
         display: flex;
         padding: 1.5rem 0 1.5rem;
-        color: $greymedium;
-
-        &:hover {
-            background: var(--bg-back-colour);
-            color: var(--headline-colour);
-        }
 
         &.is-active {
             color: $primary;
@@ -42,6 +36,10 @@
         .toc--home & {
             color: var(--headline-colour);
         }
+
+        .toc__pretitle {
+            color: var(--onSurfaceDisabledVariant);
+        }
     }
 
     &__icon {
@@ -50,8 +48,13 @@
         align-items: center;
         flex-basis: 3rem;
 
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
         svg path {
-            fill: rgba(0, 0, 0, 0.3);
+            stroke: currentColor;
         }
     }
 
@@ -67,40 +70,60 @@
     }
 
     &__pretitle {
-        font-size: 0.875rem;
         font-weight: 600;
         letter-spacing: 1px;
-        opacity: 0.4;
     }
 
     &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
         margin: 0;
-        padding: 0;
+        padding: 0 1rem 0 2rem;
         list-style: none;
 
         a {
-            display: block;
-            padding: 0.5rem 1rem 0.5rem 3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            border-radius: 2rem;
             color: var(--text-colour);
-            font-weight: regular;
+            font-weight: 500;
+            line-height: 1.25rem;
 
             &:hover {
-                background: var(--bg-back-colour);
+                background: var(--bg-colour);
                 color: var(--headline-colour);
             }
 
+            &:focus-visible {
+                outline: 2px solid var(--text-colour)
+            }
+
             &.is-active {
-                color: $primary;
+                background-color: var(--primary-alt);
+                color: #{$deep-purple-100};
                 font-weight: bold;
             }
 
             .toc--home & {
                 color: var(--text-colour);
+
+                &:hover {
+                    font-weight: 600;
+                    color: var(--headline-colour);
+                }
             }
 
             &.is-disabled {
                 color: var(--subtle-colour);
                 cursor: not-allowed;
+            }
+
+            svg {
+                min-width: 1.25rem;
+                opacity: 0.5;
             }
         }
     }

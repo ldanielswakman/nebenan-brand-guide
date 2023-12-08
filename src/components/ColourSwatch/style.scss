@@ -2,20 +2,23 @@
 
 .colour-swatch {
     position: relative;
-    display: inline-flex;
+    display: flex;
     width: 100%;
     min-width: 16rem;
     align-items: center;
-    gap: 1rem;
-    border-radius: 0.5rem;
-    margin-left: -1rem;
-    margin-right: 1rem;
+    gap: 0.75rem;
+    border-radius: 2.5rem;
+    margin-left: -0.5rem;
     margin-top: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     cursor: pointer;
 
     @include tabletAndUp {
+        display: inline-flex;
+        max-width: 19rem;
         width: 33%;
+        gap: 1rem;
+        margin-right: 2rem;
     }
 
     &:hover {
@@ -23,24 +26,41 @@
     }
     &:active {
         background: var(--subtle-colour);
-    }
+    }   
 
     .swatch {
         width: 5rem;
-        height: 5rem;
-        border-radius: 2.5rem;
+        height: 2.5rem;
+        border-radius: 2rem;
         background: var(--subtle-colour);
+
+        @include tabletAndUp {
+            width: 4rem;
+            height: 7rem;
+        }
     }
 
-    h4,
+    h4 {
+        margin: 0;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+        color: var(--headline-colour);
+    @include tabletAndUp {
+        align-items: center;
+        width: 33%;
+    }
+    }
+
     p {
         margin: 0;
+        font-size: 1rem;
         line-height: 1.375rem;
+        color: var(--text-colour);
+        font-weight: 500;
     }
 
-    p.subtle {
-        font-size: 0.875rem;
-        opacity: 0.5;
+    .subtle {
+        opacity: 0.6;
     }
 
     .message {
@@ -55,16 +75,18 @@
         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         transform: translateY(1rem);
         opacity: 0;
+        pointer-events: none;
 
         &.is-active {
             transform: translateY(0);
             opacity: 1;
+            pointer-events: all;
         }
 
         span {
             display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
             background: var(--headline-colour);
             color: var(--bg-colour);
         }

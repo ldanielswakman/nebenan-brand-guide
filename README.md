@@ -4,3 +4,9 @@
 - https://dev.to/louisbertin/multilingual-website-with-gatsby-and-contentful-part-2-25pf
 
 - https://dev.to/louisbertin/multilingual-website-with-gatsby-and-contentful-part-3-41ki
+
+## Setup
+- GatsbyJS
+
+# Development
+`gatsby develop`

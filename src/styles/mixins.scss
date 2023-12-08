@@ -1,0 +1,40 @@
+// Mixin: Responsive
+@mixin tabletAndUp {
+@media screen and (min-width: 768px) {
+    @content;
+}
+}
+@mixin tabletWideAndUp {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
+@mixin desktopAndUp {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+@mixin tabletWideAndDown {
+    @media screen and (max-width: 1023px) {
+        @content;
+    }
+}
+@mixin tabletAndDown {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+// Mixin: Dark mode
+@mixin darkMode {
+    @media (prefers-color-scheme: dark) {
+    @content;
+
+    html.prefersDarkMode:not(.prefersLightMode) & {
+        @content;
+    }
+    }
+    html.prefersDarkMode & {
+    @content;
+    }
+}

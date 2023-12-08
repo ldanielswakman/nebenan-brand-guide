@@ -12,5 +12,7 @@
     "install_prompt_title": "Take this guide with you!",
     "install_prompt_text": "Install on your device for easy access, even offline.",
     "not_now": "Not now",
-    "install": "Install"
+    "install": "Install",
+    "underconstruction_title": "Building Hoods...",
+    "underconstruction_description": "This page is currently under construction"
 }

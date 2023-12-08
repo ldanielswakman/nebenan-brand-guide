@@ -1,33 +1,8 @@
-// Colours
-$white: #FFFFFF;
-$greylightest: #F7F9E6;
-$greylighter: #EDEDE9;
-$greylight: #BBBBBB;
-$greymedium: #9c9c9c;
-$greydark: #757575;
-$grey-120: #393939;
-$black: #000000;
-
-$dark-1: #3D403F;
-$dark-2: #303332;
-$dark-3: #242625;
-
-$knallgreen-100: #B2CA06;
-$planschblau-100: #0090A1;
-$balkonmus-100: #799189;
-
-$primary: $knallgreen-100;
-$base: $grey-120;
-
-
-
-
-
 // Mixin: Responsive
 @mixin tabletAndUp {
-  @media screen and (min-width: 768px) {
-      @content;
-  }
+    @media screen and (min-width: 768px) {
+        @content;
+    }
 }
 @mixin tabletWideAndUp {
     @media screen and (min-width: 1024px) {
@@ -53,13 +28,84 @@ $base: $grey-120;
 // Mixin: Dark mode
 @mixin darkMode {
     @media (prefers-color-scheme: dark) {
-      @content;
-  
-      html.prefersDarkMode:not(.prefersLightMode) & {
+    @content;
+
+    html.prefersDarkMode:not(.prefersLightMode) & {
         @content;
-      }
+    }
     }
     html.prefersDarkMode & {
-      @content;
+    @content;
     }
-  }
+}
+
+
+// Colours
+$greylightest: #F7F9E6;
+$greylighter: #EDEDE9;
+$greylight: #BBBBBB;
+$greymedium: #9c9c9c;
+$greydark: #757575;
+$grey-120: #393939;
+$black: #000000;
+
+$dark-1: #15141A;
+$dark-2: #2A2933;
+$dark-3: #242625;
+
+// Primitives
+$deep-purple-100: #201649;
+$deep-purple-70: #635C80;
+$deep-purple-40: #A6A2B6;
+$deep-purple-20: #D2D0DB;
+$deep-purple-10: #E9E8ED;
+$deep-purple-5: #F4F3F6;
+$white: #FFFFFF;
+
+$knallgreen-100: #b5d622;
+$knallgreen-80: #cae85d;
+$knallpink-100: #EC7BCB;
+$knallpink-80: #FF9DE2;
+$planschblau-100: #0090A1;
+$balkonmus-100: #799189;
+
+// Semantic: Light mode
+$primary: $knallgreen-100;
+$primary-light: $knallgreen-80;
+$base: $deep-purple-100;
+$light-surface: $white;
+$light-surfaceDim: $deep-purple-5;
+$light-onSurface: $deep-purple-100;
+$light-onSurfaceVariant: $deep-purple-70;
+
+// Semantic: Applied
+:root {
+    --bg-colour: #{$light-surface};
+    --bg-back-colour: #{$light-surfaceDim};
+    --subtle-colour: #{$deep-purple-10};
+    --headline-colour: #{$light-onSurface};
+    --text-colour: #{$light-onSurfaceVariant};
+    --onSurfaceDisabledVariant: #{$deep-purple-20};
+    --primary: #{$knallgreen-100};
+    --primary-alt: #{$knallgreen-80};
+    --highlight: #{$knallpink-100};
+    --highlight-alt: #{$knallpink-80};
+    
+    @include darkMode {
+        --bg-colour: #{$dark-1};
+        --bg-back-colour: #{$dark-2};
+        --subtle-colour: #{lighten($dark-1, 10%)};
+        --headline-colour: #{$white};
+        --text-colour: #{$greylighter};
+        --onSurfaceDisabledVariant: #{$deep-purple-70};
+        --primary: #{$knallgreen-80};
+        --primary-alt: #{$knallgreen-100};
+        --highlight: #{$knallpink-80};
+        --highlight-alt: #{$knallpink-100};
+    }
+}
+
+
+// Typography
+@import url('https://static.nebenan.de/fonts/byrd/byrd.css');
+@import url('https://static.nebenan.de/fonts/inter/Inter.css');

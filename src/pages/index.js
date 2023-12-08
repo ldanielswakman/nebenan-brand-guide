@@ -15,8 +15,8 @@ const IndexPage = ({ data }) => {
     <Layout page="home">
 
       <aside className="panel panel--home-cover">
-        <figure className="figure--bg" style={{ backgroundImage: "url('/images/home-bg.jpg')" }}>
-            <img src="/images/home-bg.jpg" alt="" />
+        <figure className="figure--bg" style={{ backgroundImage: "url('/images/billboard-kiez-mockup.jpg')" }}>
+            <img src="/images/billboard-kiez-mockup.jpg" alt="" />
         </figure>
       </aside>
 
@@ -60,6 +60,7 @@ export const query = graphql`query HomePageQuery($locale: String) {
       node_locale
       section
       id
+      underConstruction
     }
   }
 }`
