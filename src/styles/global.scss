@@ -75,6 +75,10 @@ body {
             max-width: 72rem;
             margin-top: 2rem;
             margin-bottom: 2rem;
+
+            &.figure--maxtext {
+                max-width: 48rem;
+            }
         }
         a {
             color: $primary;
@@ -106,6 +110,7 @@ body {
         }
     }
 }
+
 
 /* Headlines */
 h1 {
@@ -183,6 +188,11 @@ a {
 
 blockquote {
     margin: 0 0 2rem;
+}
+
+hr {
+    margin: 3rem 0;
+    border: 1px solid var(--subtle-colour);
 }
 
 /* Content Columns */
@@ -281,9 +291,6 @@ figure {
         width: calc(50% - 2rem);
         margin-right: 2rem;
     }
-}
-.figure--maxtext {
-    max-width: 48rem;
 }
 
 // Badge
