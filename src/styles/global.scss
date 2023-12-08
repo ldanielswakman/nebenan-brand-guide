@@ -84,13 +84,26 @@ body {
             }
         }
     }
+    ul {
+        padding-left: 1.5rem;
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    }
     ul li p {
         margin: 0.25rem 0;
     }
     blockquote p {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        line-height: 2rem;
         font-weight: 500;
         color: $primary;
+
+        @include tabletAndUp {
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
     }
 }
 
@@ -102,26 +115,32 @@ h1 {
 }
 .heading1 {
     margin: 1.5rem 0 1rem;
+    font-family: 'Byrd', 'Inter', sans-serif;
+    text-transform: uppercase;
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 900;
     color: var(--headline-colour);
 }
 .heading2 {
-    margin: 0 0 3rem;
+    margin: 0 0 1rem;
+    font-size: 2.5rem;
+    font-family: 'Byrd', 'Inter', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
     color: var(--headline-colour);
+
+    @include tabletAndUp {
+        margin-bottom: 3rem;
+    }
 }
 .heading3 {
-    margin: 1.75rem 0 0.25rem;
+    margin: 0.75rem 0 0.25rem;
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 600;
     color: var(--headline-colour);
     letter-spacing: 1px;
     opacity: 0.5;
-
-    @include tabletAndUp {
-        margin-bottom: 3.25rem;
-    }
 }
 .heading4 {
     margin: 2rem 0 1rem;
@@ -140,7 +159,7 @@ h1 {
 }
 .heading-logo {
     display: flex;
-    margin: -1rem 0;
+    margin: 0;
     padding: 1rem 0;
     color: inherit;
 }
@@ -261,5 +280,21 @@ figure {
         display: inline-block;
         width: calc(50% - 2rem);
         margin-right: 2rem;
+    }
+}
+
+// Badge
+.badge-green {
+    display: inline-block;
+    margin: 2rem 0;
+    padding: 1rem;
+    border-radius: 4rem;
+    background: var(--primary-alt);
+
+    svg {
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        color: var(--headline-colour);
     }
 }

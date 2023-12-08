@@ -60,6 +60,7 @@ export const query = graphql`query HomePageQuery($locale: String) {
       node_locale
       section
       id
+      underConstruction
     }
   }
 }`

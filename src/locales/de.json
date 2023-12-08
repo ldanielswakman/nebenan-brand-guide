@@ -12,5 +12,7 @@
     "install_prompt_title": "Nehme diese Leitfaden mit!",
     "install_prompt_text": "Installiere auf deinem Gerät für einfachen Zugriff, auch offline.",
     "not_now": "Not now",
-    "install": "Install"
+    "install": "Install",
+    "underconstruction_title": "Nachbarschaft im Aufbau...",
+    "underconstruction_description": "Diese Seite befindet sich derzeit im Aufbau"
 }
