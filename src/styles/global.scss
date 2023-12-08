@@ -61,7 +61,7 @@ body {
 .panel--full,
 .panel--left {
     p {
-        max-width: 60rem;
+        max-width: 48rem;
         font-size: 1rem;
         line-height: 1.625rem;
         color: var(--text-colour);
@@ -281,6 +281,9 @@ figure {
         width: calc(50% - 2rem);
         margin-right: 2rem;
     }
+}
+.figure--maxtext {
+    max-width: 48rem;
 }
 
 // Badge
